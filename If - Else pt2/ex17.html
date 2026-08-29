@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_numero1"> Insira o primeiro numero <br>
+    <input type="text" id="ipt_numero2"> Insira o segundo numero <br>
+    <button onclick="testar ()">Testar</button>
+    <div id="exibir_msg"></div>
+</body>
+   
+</html>
+
+<script>
+    function testar () {
+    let numero1 = Number (ipt_numero1.value)
+    let numero2 = Number (ipt_numero2.value)
+    let resto = numero1 % numero2
+
+    if (resto == 0)
+    exibir_msg.innerHTML = `<img src="https://thumbs.dreamstime.com/b/menina-anime-em-um-uniforme-escolar-dando-polegar-para-cima-gerada-por-ai-garota-de-da-imagem-288410616.jpg?w=992" alt="">`
+    else
+    exibir_msg.innerHTML = `<img src="https://st3.depositphotos.com/17418852/36249/v/1600/depositphotos_362494682-stock-illustration-frustrated-young-man-showing-thumbs.jpg" alt="">`
+
+    };
+</script>

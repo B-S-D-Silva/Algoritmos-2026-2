@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id = "div_contador">Saldo atual: R$0</div> 
+    <input type="text" id="valor_deposito">
+   <button onclick="incrementar()" id="incrementar">Depositar</button>
+   <button onclick="decrementar()" id="decrementar"> Retirar</button>
+</body>
+</html>
+
+<script>
+
+   let valorConta = Number (0);
+
+   function incrementar () {
+    
+    let valorDeposito = Number (valor_deposito.value);
+
+    valorConta  += valorDeposito;
+    
+    
+     div_contador.innerHTML = ` Depósito de ${valorDeposito} efetuado! Saldo atual: ${valorConta} `;
+
+   }
+
+   function decrementar (){
+
+    let valorRetirada = Number (valor_deposito.value);
+
+    valorConta -= valorRetirada;
+    
+    div_contador.innerHTML = ` Retirada de ${valorRetirada} efetuada! Saldo atual: ${valorConta} `;
+
+   }
+
+</script>

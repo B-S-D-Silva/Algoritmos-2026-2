@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input_lata"> Insirir quantidade latinhas por dia <br>
+   <button onclick="calcularRefri()">calcular</button> 
+    <div id="exibir_msg"></div>
+    
+</body>
+</html>
+
+<script>
+    function calcularRefri (){
+    let porDia = Number(input_lata.value);
+    let porAno = porDia * 365
+    let mensagem1 = `Você consumiu ${porAno} latinhas esse ano`
+    let mensagem2 = `Você consumiu ${porAno} latinhas esse ano cuidado com a diabetes` 
+    
+    
+    if(porAno < 500){
+      exibir_msg.innerHTML = mensagem1
+
+    } else
+    exibir_msg.innerHTML = mensagem2
+}
+
+    ;
+
+</script>

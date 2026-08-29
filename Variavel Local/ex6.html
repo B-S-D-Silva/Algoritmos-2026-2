@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="candidato_a"> Candidato A <br>
+    <input type="text" id="candidato_b"> Candidato B <br>
+    <input type="text" id="votos_nulos"> Votos Nulos <br>
+    <input type="text" id="votos_brancos"> Votos Brancos <br>
+
+    <button onclick="resultadoEleicao ()">Resultado</button>
+
+    <div id="exibir_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function resultadoEleicao(){
+
+        let candidatoA = Number (candidato_a.value);
+        let candidatoB = Number (candidato_b.value);
+        let votosBrancos = Number (votos_brancos.value);
+        let votosNulos = Number (votos_nulos.value);
+        let totalVotos = candidatoA + candidatoB + votosBrancos + votosNulos
+        let percentualA = (candidatoA / totalVotos) * 100;
+        let percentualB = (candidatoB / totalVotos) * 100;
+        let percentualBrancos = (votosBrancos / totalVotos) * 100;
+        let percentualNulos = (votosNulos / totalVotos) * 100;
+        let mensagem = `    
+        
+    Total de votos: ${totalVotos} <br>
+
+    Candidato A: ${percentualA}% (${candidatoA} votos)  <br>
+
+    Candidato B: ${percentualB}%  (${candidatoB} votos)  <br>
+
+    Inválidos: ${percentualBrancos + percentualNulos}%  (${votosBrancos + votosNulos} votos)    <br>`
+
+    exibir_mensagem.innerHTML = mensagem
+    };
+
+</script>

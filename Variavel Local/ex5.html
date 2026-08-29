@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input_sono">
+
+     <button onclick="mostrarSono()"> Mostrar Sono </button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function mostrarSono () {
+    let horasTotais = Number (input_sono.value);
+    let sonoA = Number(input_sono.value * 0.05);
+    let sonoB = Number(input_sono.value * 0.45);
+    let sonoC = Number(input_sono.value * 0.30);
+    let sonoREM = Number(input_sono.value * 0.20);
+    let mensagem = 
+    
+    `Ao dormir ${horasTotais} horas, você dormiu: 
+    
+    <br> ${sonoA} horas na fase 1  
+
+    <br> ${sonoB} horas na fase 2  
+
+    <br> ${sonoC} horas na fase 3  
+
+    <br> ${sonoREM} horas na fase REM  
+`
+     div_mensagem.innerHTML = mensagem;
+};
+
+</script>

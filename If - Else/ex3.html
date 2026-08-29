@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input_nota1"> insira a nota 1 <br>
+    <input type="text" id="input_nota2"> insira a nota 2 <br>
+    <input type="text" id="input_nota3"> insira a nota 3 <br>
+    <button onclick="analisar()"> Analisar </button>
+    <div id="exibir_msg"></div>
+    
+</body>
+</html>
+
+<script>
+    function analisar (){
+
+    let nota1 = Number (input_nota1.value);
+    let nota2 = Number (input_nota2.value);
+    let nota3 = Number (input_nota3.value);
+    let somaNota = nota1 + nota2 + nota3 
+    let media = (somaNota / 3).toFixed(2);
+    let mensagem1 = `Sua média foi de ${media}`
+    let mensagem2 = `Sua média foi de ${media} Parabéns, você é fora de série!`
+
+    if(media >= 9.4){
+    exibir_msg.innerHTML = mensagem2
+    }
+    else 
+    exibir_msg.innerHTML = mensagem1
+     
+    };
+</script>

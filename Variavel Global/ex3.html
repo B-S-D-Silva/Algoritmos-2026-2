@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <input type="text" id="input_venda" > Valor recebido com a venda de peças <br>
+ <input type="text" id="input_servico"> Valor recebido com a venda de serviços <br>
+ <input type="text" id="input_percentual"> Percentual de imposto sobre os valores recebidos <br>
+ <input type="text" id="input_gastos"> Total de gastos realizados no mês <br>
+ <button onclick="acumular ()">Acumular</button>
+ <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+
+let mesAtual = 0;
+let saldoAcumulado = 0;
+
+function acumular() {
+    let valorVenda = Number(input_venda.value);
+    let valorServico = Number(input_servico.value);
+    let valorPercentual = Number(input_percentual.value) / 100;
+    let valorGastos = Number(input_gastos.value);
+
+    mesAtual = mesAtual + 1;
+
+    let valorTotal = valorServico + valorVenda;
+    let calculoImposto = valorTotal * valorPercentual;
+    let saldoFinal = valorTotal - calculoImposto - valorGastos;
+
+    saldoAcumulado = saldoAcumulado + saldoFinal;
+
+    let mensagem = `Resumo do mês ${mesAtual}<br>
+    Total recebido = R$ ${valorTotal}<br>
+    Valor do Imposto = R$ ${calculoImposto}<br>
+    Saldo Final de R$ ${saldoFinal}<br>
+    Acumulado até o Momento = R$ ${saldoAcumulado}<br><br><br>`;
+
+   div_mensagem.innerHTML += mensagem;
+
+};
+
+</script>

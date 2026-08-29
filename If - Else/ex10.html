@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_serie"> Nome da Série<br> 
+    <input type="text" id="ipt_ep"> Quantidade de epsisódios<br> 
+    <button onclick="verificar ()">Verificar nível</button> <br>
+    <div id="exibir_msg"></div>
+</body>
+</html>
+<script>
+
+function verificar () {
+let nomeSerie = ipt_serie.value;
+let qtdEpisodio = Number (ipt_ep.value);
+let minutos = qtdEpisodio * 22
+let calcularHora = minutos / 60;
+let mensagem = `Vejo que você gosta da série ${nomeSerie}. <br>`
+exibir_msg.innerHTML = mensagem
+if (calcularHora > 30)
+exibir_msg.innerHTML += `Uau, você realmente gosta dessa série!`
+
+};
+</script>

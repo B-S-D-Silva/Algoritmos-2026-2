@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_saldo">
+    <button onclick="verificar()">Verificar</button>
+    <div id="exibir_msg"></div>
+    
+</body>
+</html>
+
+<script>
+ function verificar () {
+  let saldo = Number (ipt_saldo.value)
+
+  if (saldo == 0)
+  exibir_msg.innerHTML = `<span style="color: black;">Conta zerada</span>`
+
+  if (saldo < 0)
+  exibir_msg.innerHTML = `<span style="color: red;">Está devendo!</span>`
+
+if (saldo > 0)
+   exibir_msg.innerHTML = `<span style="color: blue;">Saldo positivo! sorriso</span>`
+ };
+
+</script>

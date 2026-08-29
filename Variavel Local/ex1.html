@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculadora</title>
+
+</head>
+<body>
+
+    <input type="text" id="input_numb1">
+
+    <input type="text" id="input_numb2">
+
+    <br>
+
+    <button onclick="multiplicar()"> Multiplicar </button>
+    <button onclick="divisao()"> Dividir </button>
+    <button onclick="subtrair()"> Subtrair </button>
+    <button onclick="somar()"> Somar </button>
+
+    <div id="div_exibir"></div>
+
+</body>
+</html>
+
+<script>
+
+
+
+function multiplicar (){
+
+    let numero1 = Number (input_numb1.value);
+
+    let numero2 = Number (input_numb2.value);
+
+    let resultado = numero1 * numero2;
+
+    let mensagem = `O produto entre ${numero1} e ${numero2} é ${resultado}`;
+
+ div_exibir.innerHTML = mensagem;
+}
+
+function divisao (){
+
+    let numero1 = Number (input_numb1.value);
+
+    let numero2 = Number (input_numb2.value);
+
+    let resultado = numero1 / numero2;
+
+    let mensagem = `A razão entre ${numero1} e ${numero2} é ${resultado}`;
+
+ div_exibir.innerHTML = mensagem;
+}
+
+function subtrair(){
+    
+    let numero1 = Number (input_numb1.value);
+
+    let numero2 = Number (input_numb2.value);
+
+    let resultado = numero1 - numero2;
+
+    let mensagem = `A diferença entre ${numero1} e ${numero2} é ${resultado}`;
+
+ div_exibir.innerHTML = mensagem;
+}
+function somar (){
+
+    let numero1 = Number (input_numb1.value);
+
+    let numero2 = Number (input_numb2.value);
+
+    let resultado = numero1 + numero2;
+
+    let mensagem = `A soma entre ${numero1} e ${numero2} é ${resultado}`;
+
+ div_exibir.innerHTML = mensagem;
+}
+
+</script>

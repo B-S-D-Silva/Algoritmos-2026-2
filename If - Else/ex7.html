@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input_valor_prestacao"> Digite o valor da Prestação <br>
+    <input type="text" id="input_renda"> Digite o valor da Renda <br>
+     <button onclick="verificar()"> Verificar financiamento</button>
+     <div id="exibir_msg"></div>
+</body>
+</html>
+
+<script>
+    function verificar (){
+        let valorPrestacao = Number (input_valor_prestacao.value).toFixed(2);
+        let valorRenda = Number (input_renda.value).toFixed(2);
+        let calculoFinanciamento = ((valorPrestacao / valorRenda) * 100).toFixed(2)
+        let mensagem = `A prestação corresponde a ${calculoFinanciamento}% da renda familiar`
+
+        exibir_msg.innerHTML = mensagem
+        
+        if (calculoFinanciamento > 30){
+        exibir_msg.innerHTML = `A prestação corresponde a ${calculoFinanciamento}% da renda familiar e será necessário complementar a renda`
+        }
+        else 
+        exibir_msg.innerHTML; 
+       
+    };
+</script>

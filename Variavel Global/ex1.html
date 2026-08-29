@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <div id = "div_contador">Saldo atual: R$0</div> 
+   
+   <button onclick="incrementar()" id="incrementar">Receber 100</button>
+   <button onclick="decrementar()" id="decrementar"> Pagar 50</button>
+</body>
+</html>
+
+<script>
+
+   let contador = 0;
+
+   function incrementar () {
+    
+    contador += 100;
+    div_contador.innerHTML = `Transferência de R$100 recebida! Saldo atual: R$${contador}`;
+   }
+
+   function decrementar (){
+
+    contador -= 50;
+    div_contador.innerHTML = `Pagamento de R$50 efetuado! Saldo atual: R$${contador}`;
+
+   }
+
+</script>

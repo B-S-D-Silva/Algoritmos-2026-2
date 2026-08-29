@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_meta"> Qual sua meta de economia? <br>
+    <input type="text" id="ipt_saldo_atual"> Quanto tem guardado? <br>
+    <button onclick="analisar ()">Analisar Economia</button> <br>
+    <div id="exibir_msg"></div>
+</body>
+</html>
+
+<script>
+
+   function analisar () {
+   let metaEconomia = Number (ipt_meta.value)
+   let saldoAtual = Number (ipt_saldo_atual.value)
+   let diferenca = metaEconomia - saldoAtual
+
+if (metaEconomia == saldoAtual) {
+  exibir_msg.innerHTML = `Parabéns, meta alcançada!`;
+} else {
+  if (metaEconomia > saldoAtual) {
+    exibir_msg.innerHTML = `Força! Ainda em busca da meta! Falta ${diferenca}`;
+  } else {
+    exibir_msg.innerHTML = `Parabéns, meta alcançada! Meta ultrapassada em ${diferenca * -1}`;
+  }
+}
+}
+
+</script>

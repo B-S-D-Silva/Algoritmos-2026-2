@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input_nota1"> Insira a primeira nota <br>
+    <input type="text" id="input_nota2"> Insira a segunda nota <br>
+    <button onclick="analisar()"> Rola a pizza? </button>
+    <div id="exibir_msg"></div>
+    
+</body>
+</html>
+
+<script>
+
+    // calculo ta dando 1 a mais 
+    function analisar (){
+
+    let nota1 = Number (input_nota1.value);
+    let nota2 = Number (input_nota2.value);
+    let media = (nota1 / nota2).toFixed(2);
+    let mensagem1 = `Cada amigo vai pagar R$${media} pela pizza `
+    let mensagem2 = `Cada amigo vai pagar R$${media} pela pizza, deu ruim! Pizza muito cara!`
+
+    if(media >= 20){
+    exibir_msg.innerHTML = mensagem2
+    }
+    else 
+    exibir_msg.innerHTML = mensagem1
+     
+    };
+</script>

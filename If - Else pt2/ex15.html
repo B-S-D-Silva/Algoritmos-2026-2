@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_homem">  Quantidade de homens no elevador <br>
+    <input type="text" id="ipt_mulher"> Quantidade de mulheres no evelador <br>
+    <button onclick="analisar ()">Ligar Elevador</button>
+    <div id="div_exibir"></div>
+
+    
+</body>
+</html>
+
+<script>
+
+    function analisar () {
+        let qtdHomens = Number (ipt_homem.value)
+        let qtdMulher = Number (ipt_mulher.value)
+        let pesoHomen = qtdHomens * 90
+        let pesoMulher = qtdMulher * 70
+        let somaPeso = pesoHomen + pesoMulher
+        let diferenca = somaPeso - 500
+
+        if (somaPeso <= 500)
+        div_exibir.innerHTML = `<span style="color: green;">Elevador vai se mover, pois está com ${somaPeso}Kg </span>`
+        else 
+        div_exibir.innerHTML = `<span style="color: red;">Alguém precisa descer. Precisa perder ${diferenca}Kg para mover o elevador </span>`
+        
+    };
+</script>

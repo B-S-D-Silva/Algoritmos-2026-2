@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_freq"> Digite a porcentagem da sua frequência<br>
+    <button onclick="analisar()">Analisar frequência</button> <br>
+    <div id="exibir_msg"></div>
+
+    
+    
+</body>
+</html>
+
+<script>
+    function analisar () {
+    let frequencia = Number (ipt_freq.value)
+
+    if (frequencia < 50) {
+    exibir_msg.innerHTML = `<img src="https://thumbs.dreamstime.com/b/turista-na-praia-49112381.jpg?w=992" alt="">` 
+    } else{
+    exibir_msg.innerHTML = `<img src="https://thumbs.dreamstime.com/b/lerdo-com-pilha-de-livro-homem-novo-do-lerdo-que-guardara-uma-pilha-de-livro-quando-33341822.jpg?w=576" alt="">`
+    }
+    };
+</script>

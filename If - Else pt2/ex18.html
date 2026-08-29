@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_qtd"> Quantos chocolates?
+    <button onclick="comprar()">Comprar</button>
+    <div id="exibir_msg"></div>
+</body>
+</html>
+
+<script>
+  function comprar (){
+  let numeroChoco = Number (ipt_qtd.value);
+  
+  if (numeroChoco >= 12)
+  exibir_msg.innerHTML = `O valor da sua compra foi de R$${numeroChoco * 2.5}`
+  else 
+  exibir_msg.innerHTML = `O valor da sua compra foi de R$${numeroChoco * 3.0}`
+  };
+
+</script>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nota</title>
+
+</head>
+<body>
+
+    <input type="text" id="input_nome"> Insira o nome 
+
+    <br>
+
+    <input type="text" id="input_numb1"> Insira a primeira nota Semestral
+<br>
+    <input type="text" id="input_numb2"> Insira a Continuada
+<br>
+
+    <button onclick="mostrarNota()"> Mostrar nota </button>
+
+
+    <div id="div_exibir">sua nota</div>
+
+</body>
+</html>
+
+<script>
+
+
+
+function mostrarNota() {
+
+  let numero1 = Number(input_numb1.value);
+
+  let numero2 = Number(input_numb2.value);
+
+  let parteSemestral = numero1 * 0.6;  
+
+  let parteContinuada  = numero2 * 0.4;
+
+  let somaNota = (parteSemestral + parteContinuada);
+
+  let nome = input_nome.value;
+
+  let mensagem = `A média de ${nome} será de ${somaNota}`
+
+  div_exibir.innerHTML = mensagem;
+}
+
+</script>

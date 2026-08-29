@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_temperatura"> Insira a temperatura ambiente <br>
+    <button onclick="verificar()">Verificar Clima</button> <br>
+    <div id="div_exibir"></div>
+    
+    
+</body>
+</html>
+
+<script>
+function verificar () {
+let temp = Number (ipt_temperatura.value)
+if (temp < 10){
+div_exibir.innerHTML = `Temperatura apropriada p/ conservar alimento <br> <img src="https://cloudfront-us-east-1.images.arcpublishing.com/estadao/GMCOVGCCBFK6DNT3XGK2U7GYLQ.jpg" alt="">`
+
+}else{
+div_exibir.innerHTML = `Temperatura Inapropriada p/ conservar alimento <br> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_yCKRModLlpRv5dXp1o-PLLWxsxEPqU5sPOy8BukFFg&s=10" alt="">`
+}
+};
+</script>

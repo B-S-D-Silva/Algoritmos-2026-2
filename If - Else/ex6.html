@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input_kwh"> Insira a quantidade de kwh consumida por mês <br>
+    <button onclick="calcular()">Calcular luz</button>
+
+</body>
+</html>
+
+<script>
+function calcular (){
+
+    let kwhMes = Number (input_kwh.value);
+    let reais = (kwhMes * 0.85).toFixed(2)
+    let desconto = (reais * 0.10).toFixed(2)
+    let valorFinal = (reais - desconto).toFixed(2)
+
+    if (kwhMes >= 100)
+    alert (`Você tem uma conta de R$${reais}`)
+    else 
+    alert (`Você tem uma conta de R$${reais} e um desconto de ${desconto} com o valor a pagar ${valorFinal}`)
+
+
+
+};
+
+</script>
