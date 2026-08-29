@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_nome_pet"> Insira o nome do seu pet <br>
+    <input type="text" id="ipt_especie"> Insira a especie dele <br>
+    <button onclick="verificar()">Identificar Pet</button>
+</body>
+</html>
+
+<script>
+    function verificar () {
+        let nomePet = ipt_nome_pet.value
+        let especie = ipt_especie.value
+    alert (`O seu pet se chama ${nomePet} e ele é um ${especie}`)
+    };
+</script>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_filme"> Inserir nome filme <br>
+    <input type="text" id="ipt_hora"> Inserir horario da sessão <br>
+    <button onclick="verificar()">Confirmar ingresso</button>
+</body>
+</html>
+
+<script>
+    function verificar () {
+        let filme = ipt_filme.value
+        let horario = Number (ipt_hora.value)
+    alert (`Ingresso confirmado para o filme ${filme} no horário ${horario} horas`)
+    };
+</script>

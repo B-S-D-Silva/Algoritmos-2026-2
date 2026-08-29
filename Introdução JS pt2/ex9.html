@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_temperatura_atual"> Temperatura atual (em graus) <br>
+    <input type="text" id="ipt_hora"> Condição do tempo <br>
+    <button onclick="verificar()">Ver dica</button>
+</body>
+</html>
+
+<script>
+    function verificar () {
+        let temperatura =  Number (ipt_temperatura_atual.value)
+        let condicao = ipt_hora.value
+    alert (`Está fazendo ${temperatura} graus e o dia está ${condicao}`)
+    };
+</script>
