@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_altura"> <br>
+    <button onclick="verificar()">Analisar Estatura</button> <br>
+    <div id="exibir_msg"></div>
+</body>
+</html>
+
+<script>
+    function verificar () {
+    let altura = Number (ipt_altura.value)
+
+    if (altura <= 1.65){
+    exibir_msg.innerHTML = "Você pode ser piloto de corrida"
+    }else if (altura <= 1.80){
+        exibir_msg.innerHTML = "Você pode ser jogador de futebol"
+    
+    } else
+    exibir_msg.innerHTML = "Você pode ser jogador de vôlei ou basquete"
+    
+    }
+
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_paes"> Quantos pães por dia <br>
+    <input type="text" id="ipt_bolachas"> Quantas bolachas recheada por dia <br>
+    <input type="text" id="ipt_achocolatado"> Quantos copos de achocolatado por dia <br>
+    <button onclick="verificar()">Verificar calorias</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+function verificar (){
+
+let paes = Number(ipt_paes.value) * 50
+let bolacha = Number (ipt_bolachas.value) * 80
+let chocolate = Number (ipt_achocolatado.value) * 70
+
+let calorias = paes + bolacha + chocolate 
+
+if (calorias < 200){
+exibir.innerHTML = 'arabéns, vai ficar em forma!'
+
+} else if (calorias <= 400)
+exibir.innerHTML = 'Cuidado, vai ficar menos saudável !'
+
+else {
+exibir.innerHTML = 'Alerta crítico de saúde !!!'
+
+
+}
+};
+</script>

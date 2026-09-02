@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_nota">Insira a nota <br>
+    <button onclick="verificar()">Classificar aluno </button>
+</body>
+</html>
+
+<script>
+function verificar (){
+let nota = Number (ipt_nota.value)
+
+if (nota < 5){
+alert ('Aluno precisa de muita')
+
+} else if (nota <= 7)
+alert ('Aluno na média')
+
+else if (nota <= 9.5) {
+alert ('Aluno na acima da média')
+
+}else 
+alert ('Aluno fora da curva')
+
+};
+</script>

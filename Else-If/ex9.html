@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_altura"> qual sua altura<br>
+    <input type="text" id="ipt_peso"> qual seu peso <br>
+    <button onclick="verificar()">Calcular IMC</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+function verificar () {
+
+let altura = Number (ipt_altura.value) 
+let peso = Number (ipt_peso.value)
+let imc = peso / (altura * altura)
+
+if(imc < 18.5){
+exibir.innerHTML = `Abaixo do peso`
+
+}else if (imc <= 24.9){
+exibir.innerHTML = `Peso normal`
+
+}else if (imc <= 29.9){
+exibir.innerHTML = `Acima do peso `
+
+} else {
+    exibir.innerHTML = `Cuidado, risco de obesidade`
+}
+};
+
+</script>

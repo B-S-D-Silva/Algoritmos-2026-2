@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_economia"> qual sua meta de economia<br>
+    <input type="text" id="ipt_guardado"> quanto tem guardado <br>
+    <button onclick="verificar()">Analisar economia</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+function verificar () {
+
+let economia = Number (ipt_economia.value) 
+let guardado = Number (ipt_guardado.value)
+
+if(economia == guardado){
+exibir.innerHTML = `Parabéns, meta alcançada!`
+
+}else if (guardado < economia){
+exibir.innerHTML = `Força! Ainda em busca da meta! Falta ${(guardado - economia)*-1}`
+
+}else if (guardado > economia){
+exibir.innerHTML = `Meta ultrapassada em ${(guardado - economia)} `
+
+}
+};
+
+</script>

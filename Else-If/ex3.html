@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_temp">Insira a temperatura
+    <button onclick="verificar()">Analisar</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+function verificar (){
+let temperatura = Number (ipt_temp.value)
+
+if (temperatura <= 14){
+exibir.innerHTML = 'Congelante'
+
+}else if (temperatura <=21) {
+exibir.innerHTML = 'Com Frio'
+
+}else if (temperatura <= 24){
+exibir.innerHTML = 'Confortável'
+
+}else if (temperatura <= 31){
+exibir.innerHTML = 'Com calor'
+
+}else 
+exibir.innerHTML = 'Calor escaldante'
+};
+</script>
