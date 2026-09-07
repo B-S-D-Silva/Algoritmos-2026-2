@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt_pokemon" /> Qual Pokémon inicial você escolheria?
+    Bulbasaur, Charmander ou Squirtle. <br />
+    <button onclick="pokemon()">pokemon</button>
+    <div id="exibir_msg"></div>
+  </body>
+</html>
+<script>
+  function pokemon() {
+    let nomePokemon = ipt_pokemon.value;
+
+    if (nomePokemon == "Bulbasaur") {
+      exibir_msg.innerHTML = `<img src="https://repositorio.sbrauble.com/arquivos/up/pokedex/1.svg" alt="">`;
+    } else if (nomePokemon == "Charmander") {
+      exibir_msg.innerHTML = `<img src="https://repositorio.sbrauble.com/arquivos/up/pokedex/4.svg" alt="">`;
+    } else if (nomePokemon == "Squirtle") {
+      exibir_msg.innerHTML = `<img src="https://repositorio.sbrauble.com/arquivos/up/pokedex/7.svg" alt="">`;
+    } else exibir_msg.innerHTML = `Pokémon não reconhecido.`;
+  }
+</script>

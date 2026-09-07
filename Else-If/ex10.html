@@ -15,23 +15,22 @@
 
 <script>
 
-function verificar () {
+function verificar() {
 
-let velocidade = Number (ipt_velocidade.value) 
-let limite = Number (ipt_limite.value)
-let percentualVelocidade = velocidade * 1
+     let velocidade = Number(ipt_velocidade.value);
+     let limite = Number (ipt_limite.value);
+     let percentualVelocidade = ((velocidade - limite) / limite) * 100;
+   
 
-if(velocidade <= limite){
-exibir.innerHTML = `Velocidade dentro do limite. Boa direção!`
-
-}else if (){
-exibir.innerHTML = `Atenção! Excedendo o limite permitido.`
-
-}else {
-exibir.innerHTML = `Multa grave! Velocidade muito acima do permitido. `
-
-
+  if (velocidade <= limite) {
+    exibir.innerHTML = `Velocidade dentro do limite. Boa direção!`;
+  } 
+  else if (percentualVelocidade <= 20) {
+    exibir.innerHTML = `Atenção! Excedendo o limite permitido.`;
+  }
+   else {
+    exibir.innerHTML = `Multa grave! Velocidade muito acima do permitido.`;
+  }
 }
-};
 
 </script>

@@ -6,10 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id="ipt_velocidade"> Velocidade que estava dirigindo (km/h).<br>
-    <input type="text" id="ipt_limite"> qual o limite de velocidade da via (km/h). <br>
-    <button onclick="verificar()">Verificar</button>
-    <div id="exibir"></div>
+    <input type="text" id="ipt_umidade"> umidade atual do ambiente.<br>
+    
+    <button onclick="verificar()">Verificar umidade</button>
+    <div id="div_exibir"></div>
 </body>
 </html>
 
@@ -17,20 +17,21 @@
 
 function verificar () {
 
-let velocidade = Number (ipt_velocidade.value) 
-let limite = Number (ipt_limite.value)
+let umidade = Number (ipt_umidade.value) 
 
-if(velocidade <= limite){
-exibir.innerHTML = `Velocidade dentro do limite. Boa direção!`
+    if (umidade < 0) {
+        alert("Por favor, insira um valor válido entre 0 e 100.");
+    } else if (umidade > 100) {
+        alert("Por favor, insira um valor válido entre 0 e 100.");
 
-}else if (percentual <= 20 ){
-exibir.innerHTML = `Atenção! Excedendo o limite permitido.`
-
-}else if (percentual > 20){
-exibir.innerHTML = `Multa grave! Velocidade muito acima do permitido. `
-
-
+    } else if (umidade < 12) {
+        div_exibir.innerHTML = `Estado de Emergência`;
+    } else if (umidade <= 20) {
+        div_exibir.innerHTML = `Estado de alerta`;
+    } else if (umidade <= 30) {
+        div_exibir.innerHTML = `Estado de atenção`;
+    } else {
+        div_exibir.innerHTML = `Nenhum risco`;
+    }
 }
-};
-
 </script>

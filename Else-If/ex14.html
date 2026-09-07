@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt_humor" /> como está se sentindo hoje Opções: "Feliz", "Triste", "Bravo", "Surpreso" <br />
+    <button onclick="humor()">Mostrar Humor</button>
+    <div id="exibir_msg"></div>
+  </body>
+</html>
+<script>
+  function humor() {
+    let estadoHumor = ipt_humor.value;
+
+    if (estadoHumor == "Feliz") {
+      exibir_msg.innerHTML = `<img src="https://images.emojiterra.com/google/android-10/512px/1f60a.png" alt="">`;
+    } else if (estadoHumor == "Triste") {
+      exibir_msg.innerHTML = `<img src="https://images.emojiterra.com/google/android-12l/512px/1f625.png" alt="">`;
+    } else if (estadoHumor == "Bravo") {
+      exibir_msg.innerHTML = `<img src="https://images.emojiterra.com/google/noto-emoji/unicode-17.0/color/1024px/1f621.png" alt="">`;
+    } else if (estadoHumor == "Surpreso") {
+    exibir_msg.innerHTML = `<img src="https://images.emojiterra.com/google/android-11/512px/1f62f.png" alt="">`;
+  }
+    }
+</script>

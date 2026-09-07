@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_numero">
+    <button onclick="analisar()">Múltiplo de 5</button>
+    <div id="div_exibir"></div>
+</body>
+</html>
+
+<script>
+ function analisar (){
+
+   let valor = Number (ipt_numero.value)
+   let resto = valor % 5
+
+    if (valor <= 0) {
+        alert("Digite um número maior que zero");
+    
+    } else if (resto == 0) {
+        div_exibir.innerHTML = `Perfeito, esse número é múltiplo de cinco`;
+    
+    } else if (resto == 1) {
+        div_exibir.innerHTML = `Vich, sobrou um`;
+    
+    } else if (resto == 2) {
+        div_exibir.innerHTML = `Para esse o resto é dois`;
+    
+    } else if (resto == 3) {
+        div_exibir.innerHTML = `Com mais dois daria certo`;
+    
+    } else if (resto == 4) {
+        div_exibir.innerHTML = `Só faltou 1 para ser múltiplo de 5`;
+    }
+}
+</script>
