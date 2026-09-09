@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_enem">
+    <input type="text" id="ipt_nota_vest">
+    <button onclick="verificar()">Avaliação</button>
+    
+</body>
+</html>
+
+<script>
+    function verificar (){
+
+        let enem = Number (ipt_enem.value);
+        let interno = Number (ipt_nota_vest.value);
+
+        if (enem >= 800 || interno >= 700) {
+        alert (`Parabéns! Aprovado`) 
+    
+        }else {
+        alert (`Tente semestre que vem!`)
+
+    }
+
+    }
+
+</script>
+

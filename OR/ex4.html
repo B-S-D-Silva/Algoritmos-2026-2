@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt_modelo" /> Qual modelo de pagamento? (Dinheiro,
+    Cartão de débito, Cartão de crédito, Boleto )
+    <button onclick="verificar()">Analisar compra</button>
+    <div id="exibir_msg"></div>
+  </body>
+</html>
+
+<script>
+
+  function verificar() {
+
+    let modeloPag = ipt_modelo.value;
+
+    if (modeloPag == "débito" || modeloPag == "dinheiro") {
+      exibir_msg.innerHTML = "Você terá que pagar a vista";
+
+    } else if (modeloPag == "crédito" || modeloPag == "boleto") {
+      exibir_msg.innerHTML = "Pagamento poderá ser parcelado";
+
+    } else {
+      exibir_msg.innerHTML = "escolha um modelo disponível";
+    }
+
+  }
+</script>

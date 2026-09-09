@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    idade:
+    <input type="text" id="ipt_idade" />
+    possui titulo?
+
+    <select id="titulo_eleitor">
+      <option value="sim">sim</option>
+      <option value="nao">não</option>
+      <br />
+    </select>
+    <button onclick="verificar()">verificar condições</button>
+    <div id="div_exibir"></div>
+  </body>
+</html>
+
+<script>
+
+  function verificar() {
+    
+    let idade = Number(ipt_idade.value);
+    let titulo = titulo_eleitor.value;
+
+    if (idade >= 18 && titulo == "sim") {
+      alert("você pode votar");
+    } else {
+      alert("não pode votar");
+    }
+  }
+</script>
