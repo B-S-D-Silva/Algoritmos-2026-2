@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_qtdPassagens">Quantas passagens deseja adquirir
+    <button onclick="comprar()">Comprar</button>
+</body>
+</html>
+
+<script>
+
+ function comprar () {
+let qtdPassagens = Number (ipt_qtdPassagens.value)
+
+    if (qtdPassagens >= 8 && qtdPassagens <=50) {
+        
+       
+        else if (qtdPassagens >= 8 && qtdPassagens <=19) {
+            alert(`O candidato ${nome}, com altura de ${altura} metros, participará do processo de seleção de piloto.`);
+        } 
+       
+        else  {
+            alert(`Infelizmente, o candidato ${nome}, com altura de ${altura} metros, não atende os requisitos da seleção.`);
+        }
+
+    } else {
+
+        alert('Quantidade inválida para o Fidelidade!');
+    }
+ };
+</script>
