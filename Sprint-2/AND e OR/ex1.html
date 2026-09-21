@@ -16,7 +16,7 @@
 
   function avaliar() {
 
-    let nota = parseFloat(ipt_nota.value);
+    let nota = Number (ipt_nota.value);
 
     if (nota < 0 || nota > 10 || nota !== nota) {
       exibir_msg.innerHTML = "Nota inválida";
