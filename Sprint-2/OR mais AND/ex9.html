@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select id="sel_plano">
+      <option value="Premium">Premium</option>
+      <option value="Básico">Básico</option>
+    </select>
+    Plano do aluno
+    <br />
+    <input type="text" id="ipt_hora" /> Hora atual (0 a 23)
+    <br />
+    <select id="sel_biometria">
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+    </select>
+    Check-in biométrico validado?
+    <br />
+    <button onclick="liberar()">Liberar catraca</button>
+  </body>
+</html>
+
+<script>
+
+  function liberar() {
+
+    let plano = sel_plano.value;
+    let hora = Number(ipt_hora.value);
+    let biometria = sel_biometria.value;
+
+    if ((plano == "Premium" || (plano == "Básico" && hora >= 6 && hora <= 22)) && biometria == "Sim") {
+      alert("Acesso liberado");
+
+    } else {
+      alert("Acesso negado");
+    }
+
+  }
+</script>

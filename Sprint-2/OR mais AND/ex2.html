@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt_renda" /> Renda mensal
+    <br/>
+    <input type="text" id="ipt_score" /> Score de crédito
+    <br/>
+    <input type="text" id="ipt_anos" /> Há quantos anos é correntista
+    <br/>
+    <select id="sel_divida">
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+    </select>
+    Possui dívidas em aberto?
+    <br/>
+    <button onclick="analisar()">Analisar crédito</button>
+  </body>
+</html>
+
+<script>
+  function analisar() {
+    let renda = Number(ipt_renda.value);
+    let score = Number(ipt_score.value);
+    let anos = Number(ipt_anos.value);
+    let divida = sel_divida.value;
+
+    if ((renda >= 3000 && score >= 600) || (anos > 5 && divida == "Não")) {
+      alert("Empréstimo aprovado");
+    } else {
+      alert("Empréstimo negado");
+    }
+  }
+</script>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt_itens" /> Quantidade de itens comprados
+    <br/>
+    <input type="text" id="ipt_valor" /> Valor total da compra
+    <br/>
+    <select id="sel_fidelidade">
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+    </select>
+    É do programa de fidelidade?
+    <br/>
+    <input type="text" id="ipt_cupom" /> Cupom digitado
+    <br/>
+    <button onclick="aplicar()">Aplicar desconto</button>
+  </body>
+</html>
+
+<script>
+
+  function aplicar() {
+
+    let itens = Number(ipt_itens.value);
+    let valor = Number(ipt_valor.value);
+    let fidelidade = sel_fidelidade.value;
+    let cupom = ipt_cupom.value;
+
+    if (itens >= 3 && valor >= 50 && (fidelidade == "Sim" || cupom == "PROMO10")) {
+      alert("Desconto aplicado!");
+
+    } else {
+      alert("Compra não elegível para desconto");
+    }
+
+  }
+</script>

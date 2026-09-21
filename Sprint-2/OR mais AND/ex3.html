@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt_renda" /> Renda familiar per capita
+    <br/>
+    <input type="text" id="ipt_media" /> Média escolar
+    <br/>
+    <select id="sel_atleta">
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+    </select>
+    É atleta federado?
+    <br/>
+    <button onclick="verificar()">Verificar bolsa</button>
+  </body>
+</html>
+
+<script>
+
+  function verificar() {
+
+    let renda = Number(ipt_renda.value);
+    let media = Number(ipt_media.value);
+    let atleta = sel_atleta.value;
+
+    if ((renda <= 800 && media >= 8) || (atleta == "Sim" && media >= 6)) {
+      alert("Bolsa integral concedida!");
+
+    } else {
+      alert("Bolsa não concedida");
+    }
+
+  }
+</script>
