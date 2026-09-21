@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt_vestibular" /> Nota do vestibular interno
+    <br />
+    <input type="text" id="ipt_enem" /> Nota do ENEM
+    <br />
+    <input type="text" id="ipt_redacao" /> Nota da redação
+    <br />
+    <button onclick="verificar()">Verificar aprovação</button>
+  </body>
+</html>
+
+<script>
+
+  function verificar() {
+
+    let vestibular = Number(ipt_vestibular.value);
+    let enem = Number(ipt_enem.value);
+    let redacao = Number(ipt_redacao.value);
+
+    if (vestibular >= 700 || (enem >= 650 && redacao > 0)) {
+      alert("Aprovado!");
+
+    } else {
+      alert("Não aprovado");
+    }
+
+  }
+</script>

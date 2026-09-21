@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt_tela" /> Qual o tamanho da tela? (em polegadas)
+    <br />
+    <input type="text" id="ipt_cor" /> Qual a cor do celular? (Preto, Prata, Azul, Vermelho)
+    <br />
+    <button onclick="verificar()">Será que ele gosta?</button>
+    <div id="exibir_msg"></div>
+  </body>
+</html>
+
+<script>
+
+  function verificar() {
+
+    let tela = Number (ipt_tela.value);
+    let cor = ipt_cor.value;
+
+    if (tela > 6.5 && (cor == "Preto" || cor == "Prata")) {
+      exibir_msg.innerHTML = "😃";
+
+    } else {
+      exibir_msg.innerHTML = "😞";
+    }
+
+  }
+</script>
