@@ -1,49 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <input type="text" id="ipt_palavra1"> Frase
-    <input type="text" id="ipt_palavra"> Palavra
-    <button onclick="analisar()">Analisar Frase</button>
-
+  </head>
+  <body>
+    <input type="text" id="ipt_palavra1" /> Palavra 1
+    <input type="text" id="ipt_palavra" /> Palavra 2
+    <button onclick="analisar()">Analisar palavras</button>
 
     <div id="exibir_msg"></div>
-</body>
+  </body>
 </html>
 
 <script>
 
-function analisar() {
-    
-    let palavra1 = ipt_palavra1.value; 
-    let palavra = ipt_palavra.value; 
+    function analisar() {
 
-    
+      let palavra1 = ipt_palavra1.value;
+      let palavra = ipt_palavra.value;
 
-    if (frase.endsWith(palavra) && frase.startsWith(palavra)){
-        exibir_msg.innerHTML = `A frase começa e termina com ${palavra}`;
-        
-    }else if(frase.endsWith(palavra)){
-        exibir_msg.innerHTML = `A frase termina com ${palavra}`;
+      let resultado1 = palavra1.toLowerCase();
+      let resultado2 = palavra.toLowerCase();
 
+      if (palavra1 == palavra) {
+        exibir_msg.innerHTML = `As palavras ${palavra} e ${palavra1} são exatamente iguais!`;
+      } else if (resultado1 == resultado2) {
+        exibir_msg.innerHTML = `As palavras ${palavra} e ${palavra1} possuem o mesmo conteúdo, mas a digitação é diferente (maiúsculas e minúsculas)`;
+      } else {
+          exibir_msg.innerHTML = `As palavras ${palavra1} e ${palavra} são completamente diferentes!`
+      };
     }
-    else if (frase.startsWith(palavra)){
-        exibir_msg.innerHTML = `A frase começa com ${palavra}`;
-
-
-    }else {
-        exibir_msg.innerHTML = `A frase não começa e nem termina com ${palavra}!`;
-    };
-   
-
-}
-
-
-
-
     
 </script>
