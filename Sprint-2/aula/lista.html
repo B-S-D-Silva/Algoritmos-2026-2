@@ -9,14 +9,40 @@
     valor:
     <input type="text" id="ipt_valor">  <br>
     <button onclick="adicionar()">adicionar</button>
+    <button onclick="exibir()">exibir</button>
+    <button onclick="remover()">remover</button>
+
+
+    <div id="div_exibir"></div>
     
 </body>
 </html>
 
 <script>
+
+    let lista = ['a','b','c'];
+
     function adicionar (){
 
+
         
+        let valor = ipt_valor.value;
+        lista.push (valor);
+        console.log (lista);
+
+            };
+
+    function exibir () {
+        div_exibir.innerHTML = `${lista}`.replaceAll (',','<br>')
+    }
+
+    function remover () {
+
+        let removido = lista.pop ();
+        console.log (`valor removido ${removido}`);
+        console.log (lista);
 
     };
+
+
 </script>
