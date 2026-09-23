@@ -12,6 +12,7 @@
     <button onclick="exibir()">exibir</button>
     <button onclick="remover()">remover</button>
     <button onclick="analisar()">analisar</button>
+    <button onclick="pesquisa()">analisar</button>
 
 
     <div id="div_exibir"></div>
@@ -55,6 +56,25 @@
         
         `
     }
+
+    function pesquisa () {
+
+        let valor = ipt_valor.value;
+
+        let indice = ''
+
+        if (lista.includes(valor)){
+
+             indice = lista.indexOf(valor)
+             div_exibir.innerHTML = `a lista inclui o valor: ${valor}`
+
+        }else {
+            
+             div_exibir.innerHTML = `a lista não inclui o valor: ${valor}`
+        }
+
+
+    };  
 
 
 </script>
