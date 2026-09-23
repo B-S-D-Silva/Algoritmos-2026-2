@@ -11,6 +11,7 @@
     <button onclick="adicionar()">adicionar</button>
     <button onclick="exibir()">exibir</button>
     <button onclick="remover()">remover</button>
+    <button onclick="analisar()">analisar</button>
 
 
     <div id="div_exibir"></div>
@@ -43,6 +44,17 @@
         console.log (lista);
 
     };
+
+    function analisar () {
+        div_exibir.innerHTML = ` 
+        
+        tamanho: ${lista.length} <br>
+        primeiro: ${lista [0]}<br>
+        segundo: ${lista [2]}<br>
+        ultimo: ${lista [lista.length -1]}
+        
+        `
+    }
 
 
 </script>
