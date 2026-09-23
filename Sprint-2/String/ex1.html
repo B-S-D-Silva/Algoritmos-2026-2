@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_frase">
+    <button onclick="analisar()">Analisar Frase</button>
+
+
+    <div id="exibir_msg"></div>
+</body>
+</html>
+
+<script>
+
+function analisar() {
+    
+    let frase = ipt_frase.value; 
+
+    let qtdFrase = frase.length
+    
+    exibir_msg.innerHTML = `Tamanho: ${qtdFrase}<br>`; 
+
+   
+    if (qtdFrase <=10) {
+        exibir_msg.innerHTML += `<span style="color: red;">Frase Curta!</span>`;
+    } else {
+        exibir_msg.innerHTML += `<span style="color: blue;">Frase longa!</span>`;
+    }
+} 
+
+
+
+
+
+    
+</script>
