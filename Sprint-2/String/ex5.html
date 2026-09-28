@@ -1,27 +1,34 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <input type="text" id="ipt_senha" oninput="analisar()" /> digite sua senha
-  </body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Título</title>
+</head>
+<body>
+
+    <h2>Substituidor de Caracteres</h2>
+    
+    
+    <label for="ipt_senha">Digite sua senha:</label>
+    <input type="text" id="ipt_senha" oninput="fortalecerSenha()">
+
+    
+    <p>Senha forte: <b id="div_resultado"></b></p>
+
+    <script>
+        function fortalecerSenha() {
+            
+            let senhaOriginal = ipt_senha.value;
+
+           
+            let senhaForte = senhaOriginal
+                .replace(/a/gi, "@")
+                .replace(/e/gi, "3");
+
+           
+            div_resultado.innerHTML = senhaForte;
+        }
+    </script>
+
+</body>
 </html>
-
-<script>
-
-      let senha = ipt_senha.value
-      let novaSenha = ''
-
-
-      analisar(){
-          if (senha == 'a' || senha == 'A' ){
-
-            senha.replace()
-
-         }
-
-      };
-</script>

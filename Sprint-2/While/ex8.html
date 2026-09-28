@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt_valor"/>
+    <div id="exibir_mensagem"></div>
+  </body>
+</html>
+<button onclick="processar()">S2 pares</button>
+<div id="div_exibir"></div>
+<script>
+
+function processar() {
+
+  let valor = Number(ipt_valor.value);
+
+  if (valor >= 20 && valor <= 100) {
+    
+    let contador = 1;
+
+   
+    while (contador <= valor) {
+      
+     
+      if (contador % 5 == 0) {
+        div_exibir.innerHTML += `${contador} <br>`;
+      }
+      
+      contador++
+    }
+
+  
+  } else {
+     div_exibir.innerHTML += `Digite um valor entre 20 e 100`;
+
+  }
+}
+</script>

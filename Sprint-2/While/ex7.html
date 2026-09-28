@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="exibir_mensagem"></div>
+  </body>
+</html>
+<button onclick="processar()">S2 pares</button>
+<div id="div_exibir"></div>
+<script>
+
+function processar (){  
+
+let contador = 0;
+
+
+while (contador <= 100) {
+    if (contador % 2 == 0) {
+        div_exibir.innerHTML += `${contador} <br>`
+    }
+    contador++
+} 
+}
+
+</script>
