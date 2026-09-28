@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Title</title>
+</head>
+<body>
+	
+	<input type="password" id="ipt_senha" oninput="avaliarSenha()">Digite uma senha
+
+	<div id="div_resultado"></div>
+
+	<script>
+		function avaliarSenha() {
+			let senha = ipt_senha.value
+			let temOitoCaracteres = senha.length >= 8
+			let temMaiuscula = senha != senha.toLowerCase()
+			let temMinuscula = senha != senha.toUpperCase()
+			let criteriosAtendidos = 0
+
+			if (temOitoCaracteres) {
+				criteriosAtendidos++
+			}
+			if (temMaiuscula) {
+				criteriosAtendidos++
+			}
+			if (temMinuscula) {
+				criteriosAtendidos++
+			}
+
+			let forca = ''
+
+			if (criteriosAtendidos == 3) {
+				forca = 'Forte'
+			} else if (criteriosAtendidos == 2) {
+				forca = 'Média'
+			} else if (criteriosAtendidos == 1) {
+				forca = 'Fraca'
+			} else {
+				forca = 'Insegura'
+			}
+
+			div_resultado.innerHTML = `Força da senha: <b>${forca}</b><br>Critérios atendidos: ${criteriosAtendidos} de 3`
+		}
+	</script>
+</body>
+</html>

@@ -1,21 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ttile</title>
 </head>
 <body>
 
-    <input type="text" id="ipt_frase">
-    <input type="text" id="ipt_letra">
-     <button onclick="analisar()"></button>
+ 
+    <input type="text" id="ipt_frase" oninput="analisar()">Digite uma frase:
+    <br><br>
+
+    <input type="number" id="ipt_posicao" oninput="analisar()">Qual número da letra deseja ver?
+
+    <div id="div_resultado"></div>
 
 </body>
 </html>
 <script>
-    function analisar () {
+    function analisar() {
+
         let frase = ipt_frase.value
-    
+        let posicao = Number(ipt_posicao.value)
+
+        if (frase.length == 0) {
+            div_resultado.innerHTML = ''
+        }
+
+        if (posicao && posicao >= 1 && posicao <= frase.length) {
+            div_resultado.innerHTML = `A primeira letra é: <b>${frase[0]}</b><br>A ${posicao}ª letra é: <b>${frase[posicao - 1]}</b><br>A última letra é: <b>${frase[frase.length - 1]}</b>`
+        } else {
+            div_resultado.innerHTML = `A primeira letra é: <b>${frase[0]}</b><br>Informe uma posição entre 1 e ${frase.length}.<br>A última letra é: <b>${frase[frase.length - 1]}</b>`
+        }
     }
 </script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+</head>
+<body>
+
+
+   Digite uma letra: <input type="text" id="ipt_letra" >
+    <button onclick="verificarLetra()">Verificar Letras</button>
+
+    <p id="div_resultado"></p>
+
+    <script>
+        let palavraSecreta = 'morango'
+
+        function verificarLetra() {
+            let letra = ipt_letra.value
+
+            if (letra == '') {
+                div_resultado.innerHTML = 'Digite uma letra para verificar.'
+            } else if (palavraSecreta.includes(letra.toLowerCase())) {
+                div_resultado.innerHTML = `A letra ${letra} aparece na palavra secreta!`
+            } else {
+                div_resultado.innerHTML = `A letra ${letra} não aparece na palavra secreta!`
+            }
+        }
+    </script>
+</body>
+</html>
