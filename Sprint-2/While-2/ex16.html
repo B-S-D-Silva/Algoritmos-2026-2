@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <input type="text" id="ipt_num1">Quantos dias você treina?
+
+   <button onclick="verificar()">treino</button>
+    <div id="exibir_msg"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function verificar (){
+
+     let dias =  Number (ipt_num1.value);
+     let contador = 1
+
+     while (contador <= 30){
+
+        if (contador % dias == 1){
+            exibir_msg.innerHTML += `Dia ${contador} - Musculação <br>`
+
+        } else {
+            exibir_msg.innerHTML += `Dia ${contador} - Comer, dormir etc   <br>`
+
+        }
+        contador ++
+     }
+   
+    };
+</script>

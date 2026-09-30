@@ -10,24 +10,21 @@
     <div id="exibir_mensagem"></div>
   </body>
 </html>
-<button onclick="processar()">processar</button>
+<button onclick="processar()">Viva o 7</button>
 <div id="div_exibir"></div>
 <script>
 
 function processar() {
 
   let valor = Number(ipt_valor.value);
-
+  let valor2 = Number (ipt_valor2.value);
   let contador = 1;
 
-  if (valor >= 20 && valor <= 100) {
-    
-
+  if (valor >= 0 && valor2 <= 200) {
    
     while (contador <= valor) {
-      
      
-      if (contador % 5 == 0) {
+      if (contador % 7 == 0) {
         div_exibir.innerHTML += `${contador} <br>`;
       }
       
