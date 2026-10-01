@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!-- a) Solicite as informações:  -->
+    <input type="text" id="ipt_tamanho_pista"> tamanho pista <br>
+    <input type="text" id="ipt_metros_tartaruga"> quantos metros tartaruga anda por rodada<br>
+    <input type="text" id="ipt_coelho_metros"> quantos metros coelho anda por rodada<br>
+    <input type="text" id="ipt_qtd_rodadas"> em quantas rodadas o coelho dorme<br>
+    <button onclick="verificar()">dar largada</button>
+    <div id="exibir_msg"></div>
+</body>
+</html>
+
+<script>
+
+
+        let tartaruga = 0
+        let coelho = 0
+
+    function verificar (){
+
+        let tamanhoPista = Number (ipt_tamanho_pista.value);
+        let metrosTartaruga = Number (ipt_metros_tartaruga.value);
+        let metrosCoelho = Number (ipt_coelho_metros.value);
+        let rodadas = Number (ipt_qtd_rodadas.value);
+
+        let contadorCoelho = 0
+
+
+        let contador = 1
+
+      // b) Ao clicar no botão "Dar a Largada", valide os dados. 
+      // Caso alguma das situações abaixo ocorra, exiba uma mensagem de erro 
+      // explicativa e encerre:
+      
+        if (tamanhoPista > 0 && metrosTartaruga > 0 && metrosCoelho > 0 && rodadas > 0){
+
+            
+        while (tartaruga <= tamanhoPista && coelho <= tamanhoPista ){
+            console.log (contador)
+
+            if (contador % rodadas == 0){
+                contador ++
+                contadorCoelho ++
+                exibir_msg.innerHTML += `Rodada ${contador}: Tartaruga ${tartaruga} m | Coelho ${coelho} m Coelhinho dormindo... <br>`
+                tartaruga = tartaruga + metrosTartaruga
+
+
+            } 
+            
+            else {
+           contador ++
+           exibir_msg.innerHTML += `Rodada ${contador}: Tartaruga ${tartaruga} m | Coelho ${coelho} m <br>`
+           coelho = coelho + metrosCoelho
+           tartaruga = tartaruga + metrosTartaruga
+           
+
+            }
+        
+        }
+
+        } else if (metrosTartaruga >= metrosCoelho){
+        alert ('A tartaruga deve ser mais lenta que o coelho')
+
+        } else if (rodadas < 2) {
+        alert ('o coelho não pode dormir em todas as rodadas')
+
+        } else {
+        alert ('Porfavor Insira um valor válido')
+        }
+
+        if (tartaruga >= tamanhoPista && coelho >= tamanhoPista){
+        exibir_msg.innerHTML += `EMPATE na rodada ${contador}!!`
+
+        } else if (tartaruga >= tamanhoPista) {
+            exibir_msg.innerHTML += ` <br> Resultado: TARTARUGA WINS na rodada ${contador}!! Coelho completou ${(coelho / tamanhoPista) * 100}% <br> <br> O coelho tirou ${contadorCoelho} sonecas o que representa ${((contadorCoelho / contador) * 100).toFixed(2)}% das rodadas.`
+        } else if (coelho >= tamanhoPista) {
+            exibir_msg.innerHTML += `<br> Resultado: COELHO WINS na rodada ${contador} !! Tartaruga completou ${(tartaruga / tamanhoPista) * 100 }% <br> O coelho tirou ${contadorCoelho} sonecas, o que representa ${((contadorCoelho / contador) * 100).toFixed(2)}% das rodadas.`
+
+        }
+
+
+
+
+
+
+    }
+
+</script>
