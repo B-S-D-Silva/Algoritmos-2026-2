@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viagens cadastradas</title>
+</head>
+<body>
+  
+
+   Destino de viagem: <input type="text" id="ipt_destino">
+    <button onclick="adicionarDestino()">Adicionar</button>
+
+    <br><br>
+    <button onclick="mostrarPrimeiraViagem()">Primeira viagem</button>
+    <button onclick="mostrarTerceiraViagem()">Terceira viagem</button>
+    <button onclick="mostrarUltimaViagem()">Última viagem</button>
+
+    <p id="div_resultado"></p>
+
+    <script>
+        var destinos = []
+
+        function adicionarDestino() {
+            let destino = ipt_destino.value
+
+            if (destino == '') {
+                div_resultado.innerHTML = 'Digite um destino de viagem.'
+            } else {
+                destinos[destinos.length] = destino
+                ipt_destino.value = ''
+                div_resultado.innerHTML = 'Destino adicionado.'
+            }
+        }
+
+        function mostrarPrimeiraViagem() {
+            if (destinos.length == 0) {
+                div_resultado.innerHTML = 'Ainda não viajou.'
+            } else {
+                div_resultado.innerHTML = destinos[0]
+            }
+        }
+
+        function mostrarTerceiraViagem() {
+            if (destinos.length < 3) {
+                div_resultado.innerHTML = 'Ainda não fez a terceira viagem.'
+            } else {
+                div_resultado.innerHTML = destinos[2]
+            }
+        }
+
+        function mostrarUltimaViagem() {
+            if (destinos.length == 0) {
+                div_resultado.innerHTML = 'Ainda não viajou.'
+            } else {
+                div_resultado.innerHTML = destinos[destinos.length - 1]
+            }
+        }
+    </script>
+</body>
+</html>

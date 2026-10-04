@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relembrar moradia</title>
+</head>
+<body>
+    <h2>Relembrar moradia</h2>
+
+    <label for="ipt_bairro">Bairro onde morou:</label>
+    <input type="text" id="ipt_bairro">
+    <button onclick="cadastrarBairro()">Cadastrar bairro</button>
+
+    <br><br>
+    <label for="ipt_numero">Número do bairro:</label>
+    <input type="number" id="ipt_numero">
+    <button onclick="relembrarMoradia()">Relembrar moradia</button>
+
+    <p id="div_resultado" aria-live="polite"></p>
+
+    <script>
+        var bairros = []
+
+        function cadastrarBairro() {
+            let bairro = ipt_bairro.value
+
+            if (bairro == '') {
+                div_resultado.textContent = 'Digite o nome de um bairro.'
+            } else {
+                bairros[bairros.length] = bairro
+                ipt_bairro.value = ''
+                div_resultado.textContent = 'Bairro cadastrado.'
+            }
+        }
+
+        function relembrarMoradia() {
+            let numeroBairro = Number(ipt_numero.value)
+
+            if (ipt_numero.value == '' || numeroBairro < 1 || numeroBairro % 1 != 0) {
+                div_resultado.textContent = 'Informe um número de bairro válido.'
+            } else if (numeroBairro > bairros.length) {
+                div_resultado.textContent = `Você ainda não morou num ${numeroBairro}º bairro!`
+            } else {
+                div_resultado.textContent = bairros[numeroBairro - 1]
+            }
+        }
+    </script>
+</body>
+</html>

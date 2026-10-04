@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_filme" placeholder="Nome do filme">
+    <button onclick="cadastrarFilme()">Cadastrar Filme</button>
+
+    <div id="div_painel"></div>
+
+    <script>
+        var filmes = []
+        var filmeFavorito = 'Ainda não existe'
+        var terceiroFilme = 'Ainda não existe'
+
+        function cadastrarFilme() {
+            let filme = ipt_filme.value
+
+            if (filme != '') {
+                filmes[filmes.length] = filme
+
+                if (filmes.length == 1) {
+                    filmeFavorito = filme
+                }
+
+                if (filmes.length == 3) {
+                    terceiroFilme = filme
+                }
+
+                ipt_filme.value = ''
+                div_painel.innerHTML = `Seu filme favorito: ${filmeFavorito}<br>Seu 3º filme favorito: ${terceiroFilme}<br>Total de filmes cadastrados: ${filmes.length}`
+            }
+        }
+    </script>
+</body>
+</html>

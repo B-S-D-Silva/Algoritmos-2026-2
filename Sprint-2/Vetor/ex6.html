@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<input type="text" id="ipt_filme" placeholder="Nome do filme">
+	<button onclick="cadastrar()">Cadastrar</button>
+
+	<div id="div_exibir"></div>
+
+	<script>
+		function cadastrar() {
+			if (ipt_filme.value != '') {
+				div_exibir.innerHTML += ipt_filme.value + '<br>'
+				ipt_filme.value = ''
+			}
+		}
+	</script>
+</body>
+</html>

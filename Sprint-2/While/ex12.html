@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a>Papagaio Repetitivo</a> <br>
+    <input type="text" id="ipt_valor"/> usuário um número  <br>
+    <input type="text" id="ipt_valor2"/> usuário uma frase<br>
+    <div id="exibir_mensagem"></div>
+
+  </body>
+</html>
+<button onclick="processar()">Papagaio Repetitivo</button>
+<div id="div_exibir"></div>
+<script>
+
+function processar() {
+  let valor = Number(ipt_valor.value);
+  let frase = ipt_valor2.value;
+  let contador = 1;
+  let texto = "";
+  let repeticao = 1;
+
+  div_exibir.innerHTML = "";
+  
+  while (contador <= valor) {
+
+
+    while (repeticao <= contador) {
+      texto += frase + " ";
+      repeticao++;
+    }
+
+    div_exibir.innerHTML += `${contador} - ${texto} <br>`;
+    contador++;
+  }
+}
+</script>

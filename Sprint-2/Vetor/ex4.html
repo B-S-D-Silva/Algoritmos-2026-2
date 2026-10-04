@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<input type="text" id="ipt_filme" placeholder="Nome do filme">
+	<button onclick="cadastrarFilme()">Cadastrar filme</button>
+	<button onclick="verFavoritos()">Ver Favoritos</button>
+
+	<div id="div_resultado"></div>
+
+	<script>
+		var filmes = []
+		var listaFilmes = ''
+
+		function cadastrarFilme() {
+			let filme = ipt_filme.value
+
+			if (filme == '') {
+				div_resultado.innerHTML = 'Digite o nome de um filme.'
+			} else {
+				filmes[filmes.length] = filme
+				listaFilmes += `${filmes.length}. ${filme}<br>`
+				ipt_filme.value = ''
+				div_resultado.innerHTML = 'Filme cadastrado.'
+			}
+		}
+
+		function verFavoritos() {
+			if (filmes.length == 0) {
+				div_resultado.innerHTML = 'Nenhum filme cadastrado.<br>Total: 0'
+			} else {
+				div_resultado.innerHTML = `${listaFilmes}Total: ${filmes.length}<br>O filme que mais gosta é ${filmes[0]}.<br>E desses, o que menos gosta é ${filmes[filmes.length - 1]}.`
+			}
+		}
+	</script>
+</body>
+</html>

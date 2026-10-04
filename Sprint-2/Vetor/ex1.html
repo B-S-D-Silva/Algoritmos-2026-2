@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+
+
+	Digite o nome de uma fruta: <input type="text" id="ipt_fruta">
+	<button onclick="pesquisarFruta()">Pesquisar</button>
+
+	<p id="div_resultado" aria-live="polite"></p>
+
+	<script>
+		var frutas = ['maçã', 'banana', 'laranja', 'morango', 'uva']
+
+		function pesquisarFruta() {
+			let frutaPesquisada = ipt_fruta.value
+
+			if (frutaPesquisada == '') {
+				div_resultado.innerHTML = 'Digite o nome de uma fruta para pesquisar.'
+			} else if (frutas.includes(frutaPesquisada.toLowerCase())) {
+				div_resultado.innerHTML = `A fruta ${frutaPesquisada} existe na lista.`
+			} else {
+				div_resultado.innerHTML = `Não existe a fruta ${frutaPesquisada} na lista.`
+			}
+		}
+	</script>
+</body>
+</html>

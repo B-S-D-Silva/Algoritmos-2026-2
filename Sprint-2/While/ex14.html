@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a>Insira um intervalo de valores</a> <br>
+    <input type="text" id="ipt_valor"/> intervalo 1<br> 
+    <input type="text" id="ipt_valor2"/> intervalo 2<br>
+    <input type="text" id="ipt_valor3"/> número para teste de divisibilidade<br>
+
+    <div id="exibir_mensagem"></div>
+
+  </body>
+</html>
+<button onclick="processar()">Divisível</button>
+<div id="div_exibir"></div>
+<script>
+
+function processar() {
+  let valor = Number(ipt_valor.value);
+  let valor2 = Number(ipt_valor2.value);
+  let teste = Number(ipt_valor3.value);
+  let contador = valor;
+
+  div_exibir.innerHTML = ""; 
+
+  if (valor >= valor2) {
+   
+    div_exibir.innerHTML = `Digite um intervalo crescente de valores <br>`;
+  } else if (teste < 3 || teste > 13) {
+   
+    div_exibir.innerHTML = `O divisor deve estar entre 3 e 13 <br>`;
+  }
+   else {
+    
+    while (contador <= valor2) {
+     
+        if (contador % teste != 0) {
+      
+            div_exibir.innerHTML += `${contador} <br>`;
+      }
+    
+      contador++;
+    }
+  }
+}
+</script>

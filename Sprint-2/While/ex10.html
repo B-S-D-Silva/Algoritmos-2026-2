@@ -6,11 +6,14 @@
     <title>Document</title>
   </head>
   <body>
-    <input type="text" id="ipt_valor"/>
+    <a>Insira um intervalo de valores</a> <br>
+    <input type="text" id="ipt_valor"/> <br>
+    <input type="text" id="ipt_valor2"/> <br>
     <div id="exibir_mensagem"></div>
+
   </body>
 </html>
-<button onclick="processar()">Viva o 7</button>
+<button onclick="processar()">S2 pares</button>
 <div id="div_exibir"></div>
 <script>
 
@@ -18,13 +21,14 @@ function processar() {
 
   let valor = Number(ipt_valor.value);
   let valor2 = Number (ipt_valor2.value);
-  let contador = 1;
+  let contador = valor;
 
-  if (valor >= 0 && valor2 <= 200) {
+  if (valor < valor2) {
    
-    while (contador <= valor) {
+    while (contador <= valor2) {
+      console.log (contador)
      
-      if (contador % 7 == 0) {
+      if (contador % 2 == 0) {
         div_exibir.innerHTML += `${contador} <br>`;
       }
       
@@ -33,7 +37,7 @@ function processar() {
 
   
   } else {
-     div_exibir.innerHTML += `Digite um valor entre 20 e 100`;
+     div_exibir.innerHTML += `Digite um intervalo válido de valores <br>`;
 
   }
 }

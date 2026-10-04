@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a>Qual tabuada gostaria de ver?</a> <br />
+    <input type="text" id="ipt_valor" />Tabuada <br />
+    <input type="text" id="ipt_valor2" />Até<br />
+    <div id="exibir_mensagem"></div>
+  </body>
+</html>
+<button onclick="processar()">Ver tabuada</button>
+<div id="div_exibir"></div>
+<script>
+
+  function processar() {
+
+    let valor = Number(ipt_valor.value);
+    let valor2 = Number (ipt_valor2.value);
+    let contador = 1;
+
+    div_exibir.innerHTML = ""
+
+     if (valor > 1 && valor <= 9 && valor2 >= 1){
+
+
+     while(contador <= valor2){
+        console.log(contador)
+
+        if (contador % 2 == 0) {
+        div_exibir.innerHTML += `<p style="color:blue">${valor} x ${contador} = ${valor * contador}</p>`;
+        } else {
+        div_exibir.innerHTML += `<p style="color:red">${valor} x ${contador} = ${valor * contador}</p>`;
+    }
+    contador++;
+    }
+
+     
+     } else {
+        div_exibir.innerHTML += `Digite um primeiro valor entre 2 e 9 e um limite maior que 0 <br>`
+
+     }
+
+     }
+
+     
+  
+</script>
