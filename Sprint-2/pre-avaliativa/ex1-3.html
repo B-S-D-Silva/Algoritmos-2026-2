@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Faturamento</title>
+</head>
+
+<body>
+
+<select name="combustivel" id="combustivel_id">
+  <option value="" disabled selected>Selecione o tipo de combustivel</option>
+  <option value="etanol">Etanol</option>
+  <option value="gasolina">Gasolina</option>
+  <option value="diesel">Diesel</option>
+</select>
+
+<select name="hora" id="hora_id">
+  <option value="" disabled selected>Selecione a hora da compra</option>
+  <option value="0">00</option>
+  <option value="1">01</option>
+  <option value="2">02</option>
+  <option value="3">03</option>
+  <option value="4">04</option>
+  <option value="5">05</option>
+  <option value="6">06</option>
+  <option value="7">07</option>
+  <option value="8">08</option>
+  <option value="9">09</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+</select> <br>
+
+<input type="text" id="ipt_qtdLitros"> Quantos litros?
+
+<button onclick="venda()">Venda</button>
+<button onclick="encerrarDia()">Encerrar o dia</button>
+
+<div id="exibir_msg"></div>
+
+</body>
+
+<script>
+
+    let litroGasolina = 6.49;
+    let litroEtanol = 4.44;
+    let litroDiesel = 4.39;
+
+    let contador = 0;
+    let acumuladoRecebido = 0;
+    let acumuladoDescontos = 0;
+    let litrosGasolina = 0;
+    let litrosEtanol = 0;
+    let litrosDiesel = 0;
+
+    function venda() {
+
+        let tipoCombustivel = combustivel_id.value;
+        let horaCompra = Number(hora_id.value);
+        let qtdLitros = Number(ipt_qtdLitros.value.replace(',', '.'));
+
+        if (tipoCombustivel == '' || hora_id.value == '' || qtdLitros <= 0) {
+            alert('Preencha todos os campos corretamente.');
+        } else {
+
+            let precoLitro = 0;
+            let percDesconto = 0;
+
+            if (tipoCombustivel == 'gasolina') {
+                precoLitro = litroGasolina;
+                percDesconto = 0.0505;
+                litrosGasolina += qtdLitros;
+            } else if (tipoCombustivel == 'etanol') {
+                precoLitro = litroEtanol;
+                percDesconto = 0.048;
+                litrosEtanol += qtdLitros;
+            } else {
+                precoLitro = litroDiesel;
+                percDesconto = 0.0303;
+                litrosDiesel += qtdLitros;
+            }
+
+            let valorBruto = qtdLitros * precoLitro;
+            let valorDesconto = 0;
+
+            if (qtdLitros >= 20 && (horaCompra >= 21 || horaCompra <= 6)) {
+                valorDesconto = valorBruto * percDesconto;
+            }
+
+            let valorRecebido = valorBruto - valorDesconto;
+
+            contador++;
+            acumuladoRecebido += valorRecebido;
+            acumuladoDescontos += valorDesconto;
+
+            let recebidoTxt = valorRecebido.toFixed(2).replace('.', ',');
+            let descontoTxt = valorDesconto.toFixed(2).replace('.', ',');
+            let acumRecebidoTxt = acumuladoRecebido.toFixed(2).replace('.', ',');
+            let acumDescontosTxt = acumuladoDescontos.toFixed(2).replace('.', ',');
+
+            exibir_msg.innerHTML += `Venda ${contador}ª – Valor Recebido = R$ ${recebidoTxt} – Desconto Concedido = R$ ${descontoTxt} – Acumulado dos Recebimentos= R$ ${acumRecebidoTxt} - Acumulado dos Descontos = R$ ${acumDescontosTxt}<br>`;
+        }
+    }
+
+    function encerrarDia() {
+
+        let totalLitros = litrosGasolina + litrosEtanol + litrosDiesel;
+        let percGasolina = 0;
+        let percEtanol = 0;
+        let percDiesel = 0;
+
+        if (totalLitros > 0) {
+            percGasolina = litrosGasolina / totalLitros * 100;
+            percEtanol = litrosEtanol / totalLitros * 100;
+            percDiesel = litrosDiesel / totalLitros * 100;
+        }
+
+        let recebidoTxt = acumuladoRecebido.toFixed(2).replace('.', ',');
+        let descontosTxt = acumuladoDescontos.toFixed(2).replace('.', ',');
+        let gasolinaTxt = litrosGasolina.toFixed(2).replace('.', ',');
+        let etanolTxt = litrosEtanol.toFixed(2).replace('.', ',');
+        let dieselTxt = litrosDiesel.toFixed(2).replace('.', ',');
+        let percGasolinaTxt = percGasolina.toFixed(1).replace('.', ',');
+        let percEtanolTxt = percEtanol.toFixed(1).replace('.', ',');
+        let percDieselTxt = percDiesel.toFixed(1).replace('.', ',');
+
+        exibir_msg.innerHTML = `<b>Resumo do Faturamento</b><br>
+            Valor Total Recebido = R$ ${recebidoTxt}<br>
+            Valor Total dos Descontos = R$ ${descontosTxt}<br><br>
+            Quantidade de Gasolina Vendida = ${gasolinaTxt} litros == ${percGasolinaTxt} %<br>
+            Quantidade de Etanol Vendida = ${etanolTxt} litros == ${percEtanolTxt} %<br>
+            Quantidade de Diesel Vendida = ${dieselTxt} litros == ${percDieselTxt} %`;
+
+        combustivel_id.selectedIndex = 0;
+        hora_id.selectedIndex = 0;
+        ipt_qtdLitros.value = '';
+
+        contador = 0;
+        acumuladoRecebido = 0;
+        acumuladoDescontos = 0;
+        litrosGasolina = 0;
+        litrosEtanol = 0;
+        litrosDiesel = 0;
+    }
+
+</script>
+</html>

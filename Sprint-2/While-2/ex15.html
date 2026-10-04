@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Informe um intervalo crescente de números</h1>
+
+    <input type="text" id="ipt_num1">Número 1
+    <input type="text" id="ipt_num2"> Número 2
+   <button onclick="verificar()">Viva o 7</button>
+    <div id="exibir_msg"></div>
+    
+</body>
+</html>
+
+<script>
+
+    function verificar (){
+
+        let num1 =  Number (ipt_num1.value);
+        let num2 = Number (ipt_num2.value);
+        let contador = 0
+
+
+  if (num1 < num2) {
+   
+    while (contador <= num2) {
+
+      if (contador % 3 == 0 && contador % 5 == 0 )
+      exibir_msg.innerHTML += `${contador} É TRI E É PENTA<br>`;
+      
+      else if (contador % 3 == 0) {
+        exibir_msg.innerHTML += `${contador} É TRI<br>`;
+      } 
+      else if (contador % 5 == 0){
+      exibir_msg.innerHTML += `${contador} É PENTA<br>`;
+      } 
+
+      contador++
+    }
+
+  
+  } else {
+     exibir_msg.innerHTML += `Digite um intervalo válido`;
+
+  }
+}
+
+</script>
