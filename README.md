@@ -18,11 +18,8 @@ Algoritmos-2026-2/
 │   ├── If - Else pt2/
 │   ├── Else-If/
 │   ├── Atividade-Avaliativa/
-│   │   └── Controle-de-Corridas.html
 │   ├── PI - Simulador/
-│   │   └── Calculadora-Silotech.html
 │   └── exercicios-aula/
-│       └── logica.html
 └── Sprint-2/
     ├── While/
     ├── While-2/
