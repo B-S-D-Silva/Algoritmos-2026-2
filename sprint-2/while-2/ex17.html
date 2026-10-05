@@ -1,14 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <a>17. Um elefante, incomoda muita gente...</a> <br>
+    <input type="text" id="ipt_valor"/> Digite um número  <br>
+    <div id="exibir_mensagem"></div>
 
-    <input type="text" id="ipt_elefante">
-    <button onclick=""></button>
-    
-</body>
+  </body>
 </html>
+<button onclick="processar()">Atazanar a médium</button>
+<div id="div_exibir"></div>
+<script>
+
+function processar() {
+  let valor = Number(ipt_valor.value);
+  let frase = "incomodam"
+  let contador = 2;
+  let texto = "";
+  let repeticao = 1;
+
+  div_exibir.innerHTML = "";
+  
+  while (contador <= valor) {
+
+
+    while (repeticao <= contador) {
+      texto += frase + " ";
+      repeticao++;
+    }
+
+    div_exibir.innerHTML += `1 elefante incomoda muita gente<br>
+    ${contador} elefantes, ${texto} muito mais! <br><br>`;
+    contador++;
+  }
+}
+</script>
