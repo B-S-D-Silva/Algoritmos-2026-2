@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="ipt_num1">
+    <input type="text" id="ipt_num2">
+    <button onclick="processar()">contar</button>
+
+    <div id="div_exibir"></div>
+    
+</body>
+</html>
+
+<script>
+    
+    function processar (){
+    
+        let numero1 = Number (ipt_num1.value);
+        let numero2 = Number (ipt_num2.value);
+        let resto = numero1
+        let quoeciente = 0
+
+        div_exibir.innerHTML = "";
+
+
+        if (numero1 > 0 && numero2 > 0){
+
+
+        while (resto > 0 ) {
+
+            resto -= numero2
+            quoeciente++
+            console.log (quoeciente)
+            console.log (resto)
+            
+        }
+
+        if (resto < 0){
+            resto = numero1 - numero2
+            div_exibir.innerHTML = `O resto da divisão é ${resto} e seu quoeciente é ${quoeciente}`
+
+        } else {
+            div_exibir.innerHTML = `O resto da divisão é ${resto} e seu quoeciente é ${quoeciente}`
+
+        }
+      }
+    }
+
+</script>

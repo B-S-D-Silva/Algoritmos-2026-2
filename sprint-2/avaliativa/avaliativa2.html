@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="doce_1">Macarons<br> 
+    <input type="text" id="doce_2">Brigadeiros<br> 
+    <input type="text" id="doce_3">cupcakes<br> 
+    <input type="text" id="doce_4">cheesecakes<br><br><br>
+
+    <input type="text" id="valor_doce1"><br>
+    <input type="text" id="valor_doce2"><br>
+    <input type="text" id="valor_doce3"><br>
+    <input type="text" id="valor_doce4"><br>
+
+    <button onclick="processar()">Verificar Vendas</button>
+
+    <div id="exibir"></div>
+
+    <img src="">
+    
+</body>
+</html>
+
+<script>
+
+    function processar () {
+
+       let macarons = Number (doce_1.value) 
+       let brigadeiros = Number (doce_2.value)
+       let cupcakes = Number (doce_3.value)
+       let cheesecakes = Number (doce_4.value)
+
+       let valorMacarons = Number (valor_doce1.value)
+       let valorBrigadeiros = Number (valor_doce2.value)
+       let valorCupcakes = Number (valor_doce3.value)
+       let valorCheesecakes = Number (valor_doce4.value)
+
+       let contador = 1
+       let valorTotal = 0
+       let totalVendas = Number (macarons + brigadeiros + cupcakes + cheesecakes)
+
+       if (valorBrigadeiros >= 0 && valorMacarons >= 0 && valorCupcakes >= 0 && valorCheesecakes >= 0){
+
+        while (contador <= totalVendas){
+            console.log (contador)
+
+            if (macarons > 0){
+
+                macarons = macarons - 1
+                exibir.innerHTML += `Venda ${contador} - <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpVxusLm6ogX7gIeWmLbNgDmNFTr0OYDo9moZcg8L-96dJNB1RObhqcVM&s=10"> macaron - R$ ${valorMacarons}<br>`
+                contador++
+
+
+            } else if (brigadeiros > 0){
+
+                brigadeiros = brigadeiros - 1
+                exibir.innerHTML += `Venda ${contador} - <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpVxusLm6ogX7gIeWmLbNgDmNFTr0OYDo9moZcg8L-96dJNB1RObhqcVM&s=10"> brigadeiro - R$ ${valorBrigadeiros}<br>`
+                contador++
+
+            } else if (cupcakes > 0) {
+
+                cupcakes = cupcakes - 1
+                exibir.innerHTML += `Venda ${contador} - <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpVxusLm6ogX7gIeWmLbNgDmNFTr0OYDo9moZcg8L-96dJNB1RObhqcVM&s=10"> cupcakes - R$ ${valorCupcakes}<br>`
+                contador++
+                
+            } else if (cheesecakes > 0) {
+
+                cheesecakes = cheesecakes - 1
+                exibir.innerHTML += `Venda ${contador} - <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpVxusLm6ogX7gIeWmLbNgDmNFTr0OYDo9moZcg8L-96dJNB1RObhqcVM&s=10"> cheesecakes - R$ ${valorCheesecakes}<br>`
+                contador++
+           
+            }
+
+
+
+
+        }
+
+        if (totalVendas = 0){
+            exibir.innerHTML = `Com a quantidade de ${macarons} Macarons ${macarons}, ${brigadeiros}Brigadeiros (${macarons}), ${cupcakes} Cupcakes (${macarons}) e ${cheesecakes} Cheesecakes (${cheesecakes}), a venda totalizará R$25,00`
+        }
+
+
+       } else {
+        exibir.innerHTML = `Porfavor insira um valor válido, ele não pode ser negativo`
+       }
+
+
+    }
+
+</script>
