@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+O usuário informa quantos depósitos ele fez no banco.
+<input type="text" id="ipt_qtd_dep"> <br>
+O usuário informa o valor de cada depósito
+<input type="text" id="ipt_valor_deposito"><br>
+O usuário informa a cada quantos meses o bônus é aplicado. 
+<input type="text" id="ipt_meses"><br>
+
+<button onclick="calcular()">Acompanhar grana</button>
+
+<div id="exibir_msg"></div>
+    
+</body>
+</html>
+
+<script>
+
+
+
+    function calcular (){
+
+        let qtd_dep = Number(ipt_qtd_dep.value)
+        let valor_deposito = Number(ipt_valor_deposito.value)
+        let meses = Number(ipt_meses.value)
+
+        let contador = 0
+
+        let valorTotal = 0
+
+        let bonus = 0.01
+
+
+
+
+        while (contador < qtd_dep) {
+            console.log(contador)
+
+            contador++
+            valorTotal += valor_deposito
+
+                if (contador % meses == 0){
+
+                valorTotal += valorTotal * bonus
+
+                exibir_msg.innerHTML += `${contador}º Mês: R$${valorTotal}⭐<br>`
+
+            } else {
+             exibir_msg.innerHTML += `${contador}º Mês: R$${valorTotal} <br>`
+            }
+            
+
+        }
+
+
+        exibir_msg.innerHTML += `Total guardado: R$${valorTotal}<br>`
+
+
+
+
+    }
+
+</script>
