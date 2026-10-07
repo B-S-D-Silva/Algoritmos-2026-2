@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="ipt_valor"/>
+    <div id="exibir_mensagem"></div>
+  </body>
+</html>
+<button onclick="processar()">Somar Pares</button>
+<div id="div_exibir"></div>
+<script>
+
+function processar() {
+
+  let valor = Number(ipt_valor.value);
+
+  let contador = 1;
+  let somaPares = 0
+
+  if (valor >= 10 && valor <= 500) {
+   
+    while (contador <= valor) {
+        console.log(contador)
+      
+     
+      if (contador % 2 == 0) {
+        div_exibir.innerHTML += `${contador} <br>`;
+        somaPares = contador + somaPares
+      }
+      
+      contador++
+
+
+    }
+
+    div_exibir.innerHTML +=`Soma dos pares: ${somaPares}`
+
+  
+  } else {
+     alert('Digite um valor entre 10 e 500') 
+  }
+}
+
+</script>
