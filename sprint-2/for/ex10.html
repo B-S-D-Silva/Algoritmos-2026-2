@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a>Insira um intervalo de valores</a> <br />
+    <input type="text" id="ipt_valor" /> <br />
+    <input type="text" id="ipt_valor2" /> <br />
+    <div id="exibir_mensagem"></div>
+  </body>
+</html>
+<button onclick="processar()">S2 pares</button>
+<div id="div_exibir"></div>
+<script>
+
+  function processar() {
+
+    let valor = Number(ipt_valor.value);
+    let valor2 = Number (ipt_valor2.value);
+
+    if (valor < valor2) {
+
+      for (let contador = 0; contador <= valor2; contador++){
+        console.log (contador)
+        
+          if (contador % 2 == 0) {
+          div_exibir.innerHTML += `${contador} <br>`;
+        }
+
+      } 
+    } else {
+      div_exibir.innerHTML += `Digite um intervalo válido de valores <br>`;
+
+    }
+  }
+
+</script>

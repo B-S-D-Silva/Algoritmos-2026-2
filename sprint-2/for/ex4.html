@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+
+    <input type="text" id="ipt_nome"> o nome da pessoa que o usuário mais ama na vida <br>
+    <input type="text" id="ipt_quantidade"> quantidade
+    <div id="exibir_mensagem"></div>
+  </body>
+</html>
+<button onclick="processar()">Expressar o Amor</button>
+<div id="div_exibir"></div>
+<script>
+
+  
+
+function processar() {
+  
+    let nome = ipt_nome.value;
+    let qtd = Number(ipt_quantidade.value);
+
+
+    
+    // div_exibir.innerHTML = ""; 
+
+    //     while (contador < qtd) {
+    //         div_exibir.innerHTML += `${i}. ${nome} eu te amo! Sempre lembre disso<br><br>`;
+    //         contador += 1;
+    //     }
+
+    for (let i = 1; i <= qtd; i++){
+      div_exibir.innerHTML += `${i}. ${nome} eu te amo! Sempre lembre disso<br><br>`;
+    }
+    
+
+
+    }
+
+    
+</script>
