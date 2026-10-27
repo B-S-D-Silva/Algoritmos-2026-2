@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a>Insira um intervalo de limitees</a> <br>
+    <input type="text" id="ipt_limite"/> limite <br> 
+    <input type="text" id="ipt_limite3"/> número para teste de divisibilidade<br>
+
+    <div id="exibir_mensagem"></div>
+
+  </body>
+</html>
+<button onclick="processar()">Somar Números</button>
+<div id="div_exibir"></div>
+<script>
+
+function processar() {
+  let limite = Number(ipt_limite.value);
+  let teste = Number(ipt_limite3.value);
+  let contador = 1;
+  let somaMultiplos = 0;
+
+  div_exibir.innerHTML = "";
+
+  if (limite > 0 && teste > 0) {
+
+    while (contador <= limite) {
+
+      if (contador % teste == 0) {
+        div_exibir.innerHTML += `${contador} <br>`;
+        somaMultiplos += contador;
+
+      }
+
+      contador++;
+    }
+
+    div_exibir.innerHTML += `<br>Soma dos múltiplos: ${somaMultiplos}`;
+
+  } else {
+
+    alert('Digite valores maiores que 0');
+    
+  }
+}
+
+</script>
