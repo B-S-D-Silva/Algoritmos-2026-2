@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Digite o valor do produto <input type="text" id="ipt_numero" /> <br />
+    Digite um nome para o produto <input type="text" id="ipt_nomeProduto" /> <br />
+    <button onclick="processar()">Cadastrar</button> <br />
+    <button onclick="atualizar()">Analisar histórico</button>
+
+    <div id="exibir"></div>
+  </body>
+</html>
+
+<script>
+    
+  let numerosLista = [];
+  let numeroMaior = 0;
+  let numeroMenor = 0;
+  let produtoMaisCaro = ""
+  let produtoMaisBarato = ""
+  let nomeProdutos = [];
+
+  function processar() {
+    exibir.innerHTML = "";
+
+    let numero = Number(ipt_numero.value);
+    let nome = ipt_nomeProduto.value;
+
+      if (numerosLista.length === 0) {
+        numeroMaior = numero;
+        numeroMenor = numero;
+        produtoMaisCaro = nome;
+        produtoMaisBarato = nome;
+      }
+
+      numerosLista.push(numero);
+      nomeProdutos.push (nome);
+
+      if (numero > numeroMaior) {
+        numeroMaior = numero;
+        produtoMaisCaro = nome
+      }
+
+      if (numero < numeroMenor) {
+        numeroMenor = numero;
+        produtoMaisBarato = nome
+      }
+    }
+
+  function atualizar() {
+    exibir.innerHTML = "";
+
+    let soma = 0
+
+    for (let i = 0; i < numerosLista.length; i++) {
+      exibir.innerHTML += `${i + 1}º Número: ${numerosLista[i]}<br>`;
+      soma = soma + numerosLista[i]
+    }
+
+    exibir.innerHTML += `Maior: ${produtoMaisCaro} R$${numeroMaior} <br>
+        Menor: ${produtoMaisBarato} R$${numeroMenor} <br>
+        Soma dos Produtos: ${soma} <br>
+        Média do preço de venda: R$${(soma / numerosLista.length * 1.25).toFixed(2)}`
+
+
+  }
+
+</script>
