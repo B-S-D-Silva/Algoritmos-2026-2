@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Digite um número qualquer <input type="text" id="ipt_numero" /> <br />
+    <button onclick="processar()">Cadastrar</button> <br />
+    <button onclick="atualizar()">Analisar histórico</button>
+
+    <div id="exibir"></div>
+  </body>
+</html>
+
+<script>
+    
+  let numerosLista = [];
+  let numeroMaior = 0;
+  let numeroMenor = 0;
+
+  function processar() {
+    exibir.innerHTML = "";
+
+    let numero = Number(ipt_numero.value);
+    let achou = false;
+
+    for (let i = 0; i < numerosLista.length; i++) {
+      if (numerosLista[i] == numero) {
+        achou = true;
+      }
+    }
+
+    if (achou) {
+      alert("Não pode número repitido");
+    } else {
+      if (numerosLista.length === 0) {
+        numeroMaior = numero;
+        numeroMenor = numero;
+      }
+
+      numerosLista.push(ipt_numero.value);
+
+      if (numero > numeroMaior) {
+        numeroMaior = numero;
+      }
+
+      if (numero < numeroMenor) {
+        numeroMenor = numero;
+      }
+    }
+  }
+
+  function atualizar() {
+    exibir.innerHTML = "";
+
+    for (let i = 0; i < numerosLista.length; i++) {
+      exibir.innerHTML += `${i + 1}º Número: ${numerosLista[i]}<br>`;
+    }
+
+    exibir.innerHTML += `Maior: ${numeroMaior} <br>
+        Menor: ${numeroMenor}`;
+  }
+
+</script>

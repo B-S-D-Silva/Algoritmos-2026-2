@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Insira nome dos seus filhos <input type="text" id="ipt_filhos"> <br>
+    <button onclick="processar()">Cadastrar</button> <br>
+    <button onclick="atualizar()">Atualizar Família</button>
+
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    let filhos = [];
+    let quantidade = 0
+
+    function processar(){
+
+    exibir.innerHTML = ""
+
+        let busca = ipt_filhos.value.toLowerCase();
+        let achou = false;
+  
+
+        for (let i = 0; i < filhos.length; i++) {
+        
+        if (filhos[i].toLowerCase() === busca) {
+            achou = true
+        }
+    }
+
+    if (achou) {
+        alert("Não pode mais de 1 filho com o mesmo nome!")
+    } else {
+        filhos.push(ipt_filhos.value);
+        quantidade++
+    }
+
+    }
+
+    function atualizar(){
+
+        exibir.innerHTML += `Você tem ${quantidade} filhos <br>
+        Seu custo mensal será aproximadamente R$${quantidade * 3000} se colocá-los em escola particular <br>
+        ou R$${quantidade * 1500} se eles estudarem em escola pública `
+
+    }
+
+</script>
