@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Adicionar Projetos <input type="text" id="ipt_projetos"><br>
+    <button onclick="processar()">Adicionar Projetos</button> 
+    <button onclick="mostrarProjetos()">Mostrar projetos</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    let projetos = [];
+
+    function processar(){
+
+    exibir.innerHTML = ""
+
+    projetos.push(ipt_projetos.value);
+
+    for (let i = 0; i < projetos.length; i++) {
+
+        let quantidade = i + 1;
+
+        if (quantidade <= 4){
+        exibir.innerHTML += ` Você já fez ${i+1} projetos. Por isso você é um profissional Júnior<br>`;
+
+        } else if (quantidade <= 12) {
+            exibir.innerHTML += ` Você já fez ${i+1} projetos. Por isso você é um profissional Pleno<br>`;
+
+        }
+        else {
+            exibir.innerHTML += ` Você já fez ${i+1} projetos. Por isso você é um profissional Sênior<br>`;
+
+        }
+    }
+
+
+    }
+
+    function mostrarProjetos (){
+
+        exibir.innerHTML = "";
+
+        for (let i = 0; i < projetos.length; i++) {
+            exibir.innerHTML += `${projetos[i]}<br>`;
+            
+        }
+
+    }
+</script>

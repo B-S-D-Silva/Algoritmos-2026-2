@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Insira as linhas de busao <input type="text" id="ipt_busao"> <br>
+    <button onclick="processar()">Gravar busão</button> <br>
+    Insira as linhas de busao <input type="text" id="ipt_busca"> <br>
+    <button onclick="pesquisar()">Pesquisar</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    let busao = [];
+    
+
+    function processar(){
+
+    exibir.innerHTML = ""
+
+
+    busao.push(ipt_busao.value);
+
+    for (let i = busao.length - 1; i >= 0; i--) {
+        exibir.innerHTML += `${busao[i]}<br>`;
+        
+    }
+
+
+    }
+
+    function pesquisar (){
+
+        let posicoes = [];
+
+        exibir.innerHTML = ""
+
+        let busca = ipt_busca.value.toLowerCase();
+        let achou = false;
+        let quantidade = 0
+
+    for (let i = 0; i < busao.length; i++) {
+        
+        if (busao[i].toLowerCase() === busca) {
+            achou = true
+            posicoes.push(i)
+            quantidade++
+        }
+    }
+
+    if (achou) {
+        exibir.innerHTML = `Você já pegou essa linha ${quantidade} vezes, nos índices: ${posicoes}` 
+    } else {
+        exibir.innerHTML = "Você nunca pegou essa linha";
+    }
+
+    }
+
+
+</script>

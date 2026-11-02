@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Adicionar números a lista <input type="text" id="ipt_num">
+    <button onclick="cadastrar()">Cadastrar</button> <br>
+    <button onclick="paresIndice()">Ver indices pares</button>
+    <button onclick="numerosPares()">Ver números pares</button>
+    <button onclick="ambos()">Ver todos</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    let numeros = [];
+
+    function cadastrar () {
+
+    numeros.push(Number(ipt_num.value));
+    console.log(numeros)
+        
+    }
+
+    function paresIndice (){
+
+
+
+        for (let i = 0; i < numeros.length; i++) {
+
+            if (i % 2 == 0){
+            exibir.innerHTML += `Índice par ${numeros[i]}<br>`;
+           } 
+
+        }
+
+    }
+
+        function numerosPares (){
+
+
+
+        for (let i = 0; i < numeros.length; i++) {
+
+            if (numeros[i] % 2 == 0){
+            exibir.innerHTML += `Número par ${numeros[i]}<br>`;
+      } 
+     }
+    }
+
+        function ambos (){
+                exibir.innerHTML = "";
+                paresIndice();
+                numerosPares();
+
+        }
+
+</script>

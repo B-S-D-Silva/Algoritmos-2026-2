@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Cadastre os seus filmes <input type="text" id="ipt_filme">
+
+    <button onclick="cadastrar()">botão</button>
+
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    let filme = [];
+
+    function cadastrar (){
+
+         filme.push(ipt_filme.value);
+         exibir.innerHTML = "";
+
+
+
+        for (let i = 0; i < filme.length; i++) {
+            exibir.innerHTML += `${filme[i]}<br>`
+            
+        }
+    }
+
+</script>

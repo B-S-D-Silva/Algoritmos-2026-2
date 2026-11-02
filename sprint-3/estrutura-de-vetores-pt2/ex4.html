@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Insira o aluno dos alunos <input type="text" id="ipt_alunos">
+    <button onclick="processar()">Adicionar alunos</button> <br>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+    let alunos = [];
+
+    function processar(){
+
+    exibir.innerHTML = ""
+
+
+    alunos.push(ipt_alunos.value);
+
+    for (let i = alunos.length - 1; i >= 0; i--) {
+        exibir.innerHTML += `${alunos[i]}<br>`;
+        
+    }
+
+
+    }
+</script>

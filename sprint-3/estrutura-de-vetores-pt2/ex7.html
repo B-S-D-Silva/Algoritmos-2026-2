@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Insira valor do produto <input type="text" id="ipt_produto_preco"> <br>
+    <button onclick="processar()">Cadastrar</button> <br>
+    <button onclick="atualizar()">Atualizar Estoque</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    let produto_preco = [];
+
+    function processar(){
+
+    exibir.innerHTML = ""
+
+    produto_preco.push(Number(ipt_produto_preco.value));
+
+
+    }
+
+    function atualizar (){
+
+    let soma = 0; 
+    let quantidade = 0
+
+    for (let i = produto_preco.length - 1; i >= 0; i--) {
+        exibir.innerHTML += `${produto_preco[i]}<br>`;
+        soma = soma + produto_preco[i];
+        quantidade++
+        
+    }
+    exibir.innerHTML += `Você tem ${quantidade} produtos cadastrados em estoque.<br> Seu estoque vale R$${soma}`
+
+    }
+
+
+</script>
