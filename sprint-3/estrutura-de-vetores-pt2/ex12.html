@@ -57,11 +57,11 @@
     let soma = 0
 
     for (let i = 0; i < numerosLista.length; i++) {
-      exibir.innerHTML += `${i + 1}º Número: ${numerosLista[i]}<br>`;
+      exibir.innerHTML += `${i + 1}º Produto: ${nomeProdutos[i]} R$${numerosLista[i]}<br>`;
       soma = soma + numerosLista[i]
     }
 
-    exibir.innerHTML += `Maior: ${produtoMaisCaro} R$${numeroMaior} <br>
+    exibir.innerHTML += `<br>Maior: ${produtoMaisCaro} R$${numeroMaior} <br>
         Menor: ${produtoMaisBarato} R$${numeroMenor} <br>
         Soma dos Produtos: ${soma} <br>
         Média do preço de venda: R$${(soma / numerosLista.length * 1.25).toFixed(2)}`
