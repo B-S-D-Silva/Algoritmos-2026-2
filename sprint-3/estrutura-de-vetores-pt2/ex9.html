@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<select id="indique_resultado">
+    <option value="">Indique o resultado</option>
+    <option value="Vitória">Vitória</option>
+    <option value="Empate">Empate</option>
+    <option value="Derrota">Derrota</option> 
+
+</select>
+<button onclick="registrar()">Registrar jogo</button>
+
+<br>
+
+    Digite qual jogo queira saber <input type="text" id="ipt_qualjogo"> 
+    
+    <button onclick="busca()">Buscar</button>
+
+<div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+    
+
+    let partidas = [];
+
+    function registrar (){
+
+    exibir.innerHTML = ""
+
+    let vitorias = 0
+    let derrotas = 0
+    let empates = 0
+    let totalPontos = 0
+    let totalPartidas = 0 
+
+    let jogo = indique_resultado.value;
+
+    partidas.push (jogo);
+
+    
+    for (let i = 0; i < partidas.length; i++) {
+
+        if (partidas[i] === "Vitória") {
+
+        vitorias++
+        totalPontos += 3
+
+    } else if (partidas[i] === "Derrota"){
+
+        derrotas++
+
+    } else if (partidas[i] === "Empate"){
+
+        empates++
+        totalPontos++
+
+    }
+
+    let totalPartidas = partidas.length;
+
+    exibir.innerHTML = `O time teve: ${vitorias} vitórias, ${empates} empates, ${derrotas} derrotas  
+
+      Pontuação total: ${totalPontos} pontos  
+
+      Aproveitamento: ${(totalPontos / (totalPartidas * 3) * 100).toFixed(1)}%`
+
+    }
+ } 
+function busca() {
+
+    exibir.innerHTML = "";
+
+    let pesquisarJogo = Number(ipt_qualjogo.value);
+
+    if (pesquisarJogo < 1 || pesquisarJogo > partidas.length) {
+        exibir.innerHTML = `Não foi cadastrado um ${pesquisarJogo}º jogo`;
+
+    } else {
+        exibir.innerHTML = `No ${pesquisarJogo}º jogo, o time teve: ${partidas[pesquisarJogo - 1]}`;
+    }
+}
+
+</script>
