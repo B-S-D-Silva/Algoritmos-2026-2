@@ -8,7 +8,8 @@
 <body>
 
     Registrar temperatura <input type="text" id="ipt_temp">
-    <button onclick="registrar()"></button>
+    <button onclick="registrar()">Registrar</button>
+    <div id="exibir"></div>
     
 </body>
 </html>
@@ -18,21 +19,30 @@
 
     let historicoTemp = [];
     let tipoTemp = [];
+    let contador = 0;
+    let valorMaior = 0;
+    let valorMenor = 0;
+    let calor = 0;
 
     function registrar (){
+    
+    exibir.innerHTML = "";
 
     let temperatura = Number(ipt_temp.value);
     let tempTipo = "";
 
 
-      } if (temperatura < -20 || temperatura > 50){
+       if (temperatura < -20 || temperatura > 50){
 
         alert('Temperatura inválida!')
 
-      }else{
+      }
+      
+      else{
 
       if (temperatura > 24) {
         tempTipo = "Calor";
+        calor++
       } else if (temperatura < 15){
         tempTipo = "Frio"
       } else {
@@ -41,7 +51,28 @@
 
         historicoTemp.push(temperatura);
         tipoTemp.push(tempTipo);
-    }
+        contador++
+        exibir.innerHTML += `Temperatura do dia ${contador} anotada! <br>`
 
+        if (temperatura > valorMaior) {
+        valorMaior = temperatura;
+      }
+
+      if (temperatura < valorMenor){
+        valorMenor = temperatura;
+      }
+
+        for (let i = historicoTemp.length - 1; i >= 0; i--){
+          exibir.innerHTML += `Dia ${i + 1}: ${historicoTemp[i]} – ${tipoTemp[i]}<br>`
+          
+        }
+           exibir.innerHTML += 
+           `Maior temperatura: ${valorMaior}°C <br>
+
+            Menor temperatura: ${valorMenor}°C<br>
+
+            Dias de calor: ${calor}<br>`
+    } 
+}
 
 </script>
