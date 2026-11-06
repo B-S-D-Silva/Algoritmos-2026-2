@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Registrar temperatura <input type="text" id="ipt_temp">
+    <button onclick="registrar()"></button>
+    
+</body>
+</html>
+
+<script>
+
+
+    let historicoTemp = [];
+    let tipoTemp = [];
+
+    function registrar (){
+
+    let temperatura = Number(ipt_temp.value);
+    let tempTipo = "";
+
+
+      } if (temperatura < -20 || temperatura > 50){
+
+        alert('Temperatura inválida!')
+
+      }else{
+
+      if (temperatura > 24) {
+        tempTipo = "Calor";
+      } else if (temperatura < 15){
+        tempTipo = "Frio"
+      } else {
+        tempTipo = "Agradável"
+      }
+
+        historicoTemp.push(temperatura);
+        tipoTemp.push(tempTipo);
+    }
+
+
+</script>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Digite o valor do produto <input type="text" id="ipt_numero" /> <br />
+    Digite um nome para o produto <input type="text" id="ipt_nomeProduto" /> <br />
+    <button onclick="processar()">Cadastrar</button> <br/>
+    <button onclick="carrinho()">Ver carrinho</button>
+
+    <div id="exibir"></div>
+  </body>
+</html>
+
+<script>
+    
+  let valoresLista = [];
+ 
+  let nomeProdutos = [];
+
+  let valorMaior = 0;
+  let nomeMaior = ""
+
+  let valorTotal = 0;
+
+
+  function processar() {
+
+    let valor = Number(ipt_numero.value);
+    let nome = ipt_nomeProduto.value;
+
+
+
+      if (nomeProdutos.includes(nome)){
+
+        alert('Produto repetido') 
+
+      } else if (nome == ""){
+        alert('Digite um nome')
+
+      } else if (valor <= 0){
+
+        alert('Digite um valor válido')
+
+      }else{
+
+      valoresLista.push(valor);
+      nomeProdutos.push (nome);
+
+      valorTotal += valor
+
+
+      if (valor > valorMaior) {
+        valorMaior = valor;
+        nomeMaior = nome;
+      }
+
+    }
+
+  }
+    
+
+      function carrinho (){
+
+        exibir.innerHTML = ""
+        
+        for (let i = valoresLista.length - 1; i >= 0; i--) {
+        exibir.innerHTML += `Produto ${i + 1} - ${nomeProdutos[i]} - R$ ${valoresLista[i]}<br>`
+    }
+        exibir.innerHTML += `
+         Você tem ${nomeProdutos.length} produtos no carrinho<br>
+         Total da compra: R$${valorTotal}<br>
+         Produto mais caro: ${nomeMaior} (R$${valorMaior})<br>
+         `
+  }
+
+
+</script>
