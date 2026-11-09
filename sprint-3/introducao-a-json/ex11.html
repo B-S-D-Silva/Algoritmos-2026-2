@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+   Nome funcionário<input type="text" id="ipt_nome"><br>
+   Cargo <input type="text" id="ipt_cargo"><br>
+   Idade <input type="text" id="ipt_idade"><br>
+
+    <button onclick="cadastrar()">Cadastrar Usuário</button>
+
+    <div id="exibir"></div>
+</body>
+
+</html>
+
+<script>
+
+    function cadastrar (){
+
+        let funcionario = {
+
+            nome: ipt_nome.value,
+            cargo: ipt_cargo.value,
+            idade: Number(ipt_idade.value)
+
+        }
+
+        if (funcionario.cargo === "Administrador"){
+            funcionario.acesso = "Total"
+        } else {
+            funcionario.acesso = "Limitado"
+        }
+
+        
+
+        exibir.innerHTML += `
+                Usuário: ${funcionario.nome} <br>
+                Cargo: ${funcionario.cargo}<br>
+                Nível de acesso: ${funcionario.acesso}<br>`
+
+        console.log(funcionario)
+
+    }
+
+</script>

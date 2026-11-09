@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+   Nome aluno<input type="text" id="ipt_nome"><br>
+   nota <input type="text" id="ipt_nota"><br>
+   frequencia <input type="text" id="ipt_frequencia"><br>
+
+    <button onclick="cadastrar()">Analisar Aluno</button>
+
+    <div id="exibir"></div>
+</body>
+
+</html>
+
+<script>
+
+    
+
+    function cadastrar (){ 
+
+        
+        let aluno = {
+
+            nome: ipt_nome.value,
+            nota: Number(ipt_nota.value),
+            frequencia: Number(ipt_frequencia.value)
+
+        } 
+
+        if (aluno.nota >= 6 && aluno.frequencia >=75){
+                    aluno.situacao = "Aprovado"
+
+        } else {
+             aluno.situacao = "Reprovado"
+        }
+
+
+
+        exibir.innerHTML += `
+
+        Aluno: ${aluno.nome}<br>
+        Nota: ${aluno.nota}<br>
+        Frequência: ${aluno.frequencia}%<br>
+        Situação: ${aluno.situacao}<br>
+
+        `
+        console.log(aluno)
+
+    }
+
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+   Nome <input type="text" id="ipt_nome"><br>
+   Tipo <input type="text" id="ipt_tipo"><br>
+   Idade <input type="text" id="ipt_idade"><br>
+
+    <button onclick="cadastrar()">Cadastrar pet</button>
+
+    <div id="exibir"></div>
+</body>
+
+</html>
+
+<script>
+
+    function cadastrar (){
+
+        let pet = {
+
+            nome: ipt_nome.value,
+            tipo: ipt_tipo.value,
+            idade: Number(ipt_idade.value)
+
+        }
+
+        exibir.innerHTML += `Pet: ${pet.nome}<br>
+                            Tipo: ${pet.tipo}<br>
+                            Idade: ${pet.idade} anos<br>`
+        console.log(pet)
+
+    }
+
+</script>

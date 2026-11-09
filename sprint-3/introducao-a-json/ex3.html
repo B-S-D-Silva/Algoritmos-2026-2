@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+   Nome produto<input type="text" id="ipt_nome"><br>
+   quantidade <input type="text" id="ipt_quantidade"><br>
+   preço <input type="text" id="ipt_preco"><br>
+
+    <button onclick="cadastrar()">Cadastrar Produto</button>
+
+    <div id="exibir"></div>
+</body>
+
+</html>
+
+<script>
+
+    
+
+    function cadastrar (){ 
+
+        
+        let produto = {
+
+            nome: ipt_nome.value,
+            quantidade: Number((ipt_quantidade.value) * 10),
+            preco: Number(ipt_preco.value)
+
+        }
+
+        produto.valorTotal = (produto.quantidade * produto.preco)
+
+        exibir.innerHTML += `
+
+        Produto: ${produto.nome} <br>
+        Quantidade Atualizada: ${produto.quantidade}<br>
+        Preço Unitário: R$${produto.preco}<br>
+        Valor Total: R$${produto.valorTotal}<br>
+
+        `
+        console.log(produto)
+
+    }
+
+</script>

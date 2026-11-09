@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+   nome comprador<input type="text" id="ipt_nome"><br>
+   e-mail <input type="text" id="ipt_email"><br>
+   produto <input type="text" id="ipt_produto"><br>
+   valor <input type="text" id="ipt_valor"><br>
+
+    <button onclick="cadastrar()">Finalizar Compra</button>
+
+    <div id="exibir"></div>
+</body>
+
+</html>
+
+<script>
+
+    let valorTotal = 0
+
+    function cadastrar (){ 
+
+        
+        
+        let comprador = {
+
+            nome: ipt_nome.value,
+            email: ipt_email.value
+
+        }
+
+        let produto_objeto ={
+
+            produtoNome: ipt_produto.value,
+            valor: Number(ipt_valor.value)
+
+        }
+
+
+
+        exibir.innerHTML += `
+
+        Comprador: ${comprador.nome} | ${comprador.email} <br>
+        Produto:${produto_objeto.produtoNome}<br>
+        Valor: R$${produto_objeto.valor}<br>
+        `
+        console.log(produto_objeto)
+        console.log(comprador)
+
+    }
+
+</script>
