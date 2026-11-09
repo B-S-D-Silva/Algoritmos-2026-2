@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <select id="indique_resultado">
+    <option value="">Indique o resultado</option>
+    <option value="Mariana">Mariana</option>
+    <option value="Cléber">Cléber</option>
+    <option value="Adalberto">Adalberto</option> 
+
+    </select>
+
+    
+    <button onclick="votar()">Votar</button>
+
+    <button onclick="apurar()">Apurar Votos</button>
+
+    <div id="exibir"></div>
+
+
+    
+</body>
+</html>
+
+<script>
+
+    let urna = []
+
+    function votar (){
+
+
+        let voto = indique_resultado.value
+
+        urna.push(voto);
+
+        exibir.innerHTML = `Voto registrado! Obrigado por participar<br>`
+
+    }
+
+    function apurar (){
+
+        exibir.innerHTML = ""
+
+        let mariana = 0;
+
+        let adalberto = 0;
+
+        let cleber = 0;
+
+
+
+        for (let i = 0; i < urna.length;i++){
+
+            if (urna[i] == "Mariana"){
+                mariana++
+            } else if (urna[i] == "Adalberto"){
+                adalberto++
+
+            } else if (urna[i] == "Cléber"){
+                cleber++
+
+            }
+        }
+
+        exibir.innerHTML += `Total de votos: ${urna.length}<br>
+
+                            Mariana: ${mariana} votos <br>
+
+                            Cléber: ${cleber} votos<br>
+
+                            Adalberto: ${adalberto} votos<br>`
+
+        let maior = mariana;
+
+
+        if (adalberto > maior) {
+            
+        maior = adalberto
+
+        }
+
+        if (cleber > maior){
+
+        maior = cleber
+
+        }
+
+        let vencedores = [];
+
+        if (mariana == maior) {
+
+        vencedores.push("Mariana")
+
+        }
+
+        if (adalberto == maior) {
+
+        vencedores.push("Adalberto")
+
+        }
+        
+        if (cleber == maior) {
+
+        vencedores.push("Cléber");
+        
+        }
+
+        if (maior == 0) {
+
+        exibir.innerHTML += `Nenhum voto registrado`
+
+        } else if (vencedores.length == 1) {
+
+        exibir.innerHTML += `O(A) vencedor(a) é ${vencedores[0]}`
+
+        } else {
+
+        exibir.innerHTML += `Houve empate!`
+
+        }
+        
+
+
+    }
+    
+</script>

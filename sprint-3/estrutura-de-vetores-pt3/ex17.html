@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Digite o nome da Música <input type="text" id="ipt_nome">
+    Digite a duração da Música (em minutos)<input type="text" id="ipt_duracao"> 
+    <button onclick="adicionar()">Adicionar Música</button> 
+    <button onclick="playlist()">Ver playlist</button>  <br>
+    <input type="text" id="ipt_pesquisa">
+    <button onclick="pesquisar()">Pesquisar Música</button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+<script>
+
+
+    let playlistNome = []
+    let playlistDuracao = []
+    let maiorDuracao = 0
+    let nomeMaior = ""
+    let somaMinutos = 0;
+
+    function adicionar (){
+
+
+        let nomeMusica = ipt_nome.value;
+        let duracaoMusica = Number (ipt_duracao.value);
+
+        if (nomeMusica == "" || duracaoMusica <= 0){
+
+            alert ("Adicione um nome para a música ou coloque uma duração maior que 0")
+
+        } else {
+            playlistNome.push(nomeMusica);
+            playlistDuracao.push(duracaoMusica);
+            somaMinutos += duracaoMusica
+        }
+
+        if (duracaoMusica > maiorDuracao) {
+        maiorDuracao = duracaoMusica;
+        nomeMaior = nomeMusica;
+      }
+
+    }
+
+    function playlist (){
+
+        exibir.innerHTML = ""
+
+        for (let i = playlistNome.length - 1; i >= 0; i--){
+            exibir.innerHTML += `Música ${i + 1} - ${playlistNome[i]} <br>`
+
+
+            
+
+        }
+        exibir.innerHTML += `Total de músicas: ${playlistDuracao.length} <br>
+
+                            Duração total: ${somaMinutos} minutos <br>
+
+                            Música mais longa: ${nomeMaior}<br>`
+    }
+
+    function pesquisar (){
+
+        exibir.innerHTML = ""
+
+        let contador = 0
+        let indicesSuporte = []
+        let pesquisa = ipt_pesquisa.value;
+
+        for (let i = 0; i < playlistNome.length; i++){
+
+            if (playlistNome[i] == pesquisa){
+                contador++
+                indicesSuporte.push(i)
+            }
+
+        } if (indicesSuporte.length == 1){
+        exibir.innerHTML += `A música ${pesquisa} aparece ${contador} vez na playlist, no índice: ${indicesSuporte}`
+        } else if (indicesSuporte.length >=2){
+        exibir.innerHTML += `A música ${pesquisa} aparece ${contador} vezes na playlist, nos índices: ${indicesSuporte}`
+
+        }
+        else {
+
+        exibir.innerHTML += "Música não encontrada"
+
+    }
+    }
+
+</script>
