@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+  Nome Arma <input type="text" id="ipt_arma"> <br>
+  Pontos necessários <input type="text" id="ipt_pontos"> <br>
+  Tipo de arma <input type="text" id="ipt_tipo"> <br>
+
+
+  <button onclick="registrar()">Registrar</button><br><br>
+  Nome da arma para update <input type="text" id="ipt_qualArma"><br>
+  <button onclick="update()">Update por nome</button> <br><br>
+
+  Tipo para acréscimo de pontos <input type="text" id="ipt_qualTipo"><br>
+  <button onclick="updateTipo()">Update tipo</button> <br> <br>
+
+ Veja todos os itens do seu inventário! <button onclick="listar()">Listar Inventário Completo</button> <br><br>
+ 
+ Listar as armas por tipo <input type="text" id="ipt_listar_tipo">
+ <button onclick="listarTipo()">Listar Inventário</button>
+
+ <div id="exibir"></div>
+    
+</body>
+</html>
+
+<script>
+
+
+    let nomeArma = [];
+    let pontosArma = [];
+    let tipoArma = [];
+    let menorPontos = 100
+    let maiorPontos = 0
+
+    function registrar (){
+
+        let nome = ipt_arma.value
+        let pontos = Number (ipt_pontos.value)
+        let tipo = ipt_tipo.value
+
+        if (nomeArma.includes(nome)){
+
+        alert('Arma ja registrada') 
+
+        } else if (tipo != "Corte" && tipo != "Blindagem" && tipo != "Projeteis" && tipo != "Cerco"){
+
+        alert('Coloque um tipo válido') 
+
+        } else if (pontos < 0 ){
+
+        alert('Pontos não pode ser menor que 0') 
+
+        }
+         else {
+
+            nomeArma.push(nome)
+            pontosArma.push(pontos)
+            tipoArma.push(tipo)
+
+        }
+
+        if (pontos > maiorPontos) {
+        maiorPontos = pontos;
+
+        }
+        if (pontos < menorPontos) {
+        menorPontos = pontos;
+
+        }
+}
+
+    function update (){
+
+
+        let qualArma = ipt_qualArma.value
+
+        for (let i = 0; i <= nomeArma.length;i++){
+
+            if (qualArma === nomeArma[i]){
+
+              let novosPontos = Number (prompt ("novos pontos:"))
+
+                pontosArma[i] = novosPontos
+
+        if (novosPontos > maiorPontos) {
+        maiorPontos = novosPontos;
+
+        }
+        if (novosPontos < menorPontos) {
+        menorPontos = novosPontos;
+
+        }
+
+            }
+
+        }
+        
+        
+    }
+
+    function updateTipo (){
+
+        let qualTipo = ipt_qualTipo.value
+        
+        let percentual = Number (prompt ("percentual de acréscimo :") / 100 + 1)
+
+        for (let i = 0; i <= tipoArma.length;i++){
+
+            if (qualTipo === tipoArma[i]){
+
+                pontosArma[i] = pontosArma[i] * percentual
+
+            }
+
+            if (pontosArma[i]  > maiorPontos) {
+                 maiorPontos = pontosArma[i];
+
+        }
+
+         if (pontosArma[i]  < menorPontos) {
+                 menorPontos = pontosArma[i];
+
+        }
+        
+
+    }
+     }
+
+    function listar (){
+
+        exibir.innerHTML = ""
+
+        for (let i = nomeArma.length - 1; i >= 0; i--){
+            
+            exibir.innerHTML += `Item ${i + 1} - ${nomeArma[i]} - Tipo ${tipoArma[i]} <br>`
+
+        }
+
+
+    }
+    function listarTipo (){
+
+        exibir.innerHTML = ""
+
+        let listar = ipt_listar_tipo.value
+        let totalArmas = 0
+        
+
+            for (let i = 0; i <= tipoArma.length;i++){
+
+            if (listar === tipoArma[i]){
+                totalArmas++
+            
+
+                exibir.innerHTML += `Item ${i + 1} - ${nomeArma[i]} - Tipo ${tipoArma[i]} - Pontos ${pontosArma[i]}  <br>`
+
+            }
+
+    }
+                exibir.innerHTML += `<br> A maior quantidade de pontos necessários: ${maiorPontos.toFixed(2)}<br>
+                                 menor quantidade de pontos necessário: ${menorPontos.toFixed(2)}<br>
+                                 A quantidade de armas cadastradas (nesse tipo): ${totalArmas}.<br>`
+
+}
+
+
+
+</script>
